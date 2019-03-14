@@ -1,0 +1,9 @@
+name: khelo
+description: ''
+author: ''
+homepage: ''
+code: ''
+require:
+    - RainLab.User
+    - RainLab.Blog
+    - RainLab.Forum
