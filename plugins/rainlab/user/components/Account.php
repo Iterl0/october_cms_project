@@ -1,11 +1,13 @@
 <?php namespace RainLab\User\Components;
 
+use Illuminate\Support\Facades\DB;
 use Lang;
 use Auth;
 use Mail;
 use Event;
 use Flash;
 use Input;
+use RainLab\User\Models\User;
 use Request;
 use Redirect;
 use Validator;
@@ -15,6 +17,9 @@ use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use RainLab\User\Models\Settings as UserSettings;
 use Exception;
+use October\Rain\Auth\AuthException;
+use Khelo\Khelo\Classes\KheloPlayer;
+use Illuminate\Support\Facades\Session;
 
 /**
  * Account component
@@ -191,6 +196,23 @@ class Account extends ComponentBase
                 'login'    => array_get($data, 'login'),
                 'password' => array_get($data, 'password')
             ];
+
+            /**
+             * check if user is present in game engine
+             */
+
+            $user_record = DB::table('users')->where('email', $credentials['login'])->get()->first();
+            if (!$user_record) {
+                throw new AuthException('Wrong email or user does not exist');
+            }
+
+            $user = new KheloPlayer($user_record->name, $credentials['password']);
+            if (!$user->isAuthorized()) {
+                throw new AuthException($user->getErrors());
+            }
+
+            Auth::login(Auth::findUserById($user_record->id));
+            Session::put('player_info', serialize($user));
 
             Event::fire('rainlab.user.beforeAuthenticate', [$this, $credentials]);
 
