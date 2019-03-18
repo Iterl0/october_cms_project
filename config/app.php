@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'debug' => true,
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://october-cms.loc/',
+    'url' => env('APP_URL', 'http://october-cms.loc/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -101,7 +101,7 @@ return [
     |
     */
 
-    'key' => 'ZOQCMez24LqZrphtluajXPzgdOleNSks',
+    'key' => env('APP_KEY', ''),
 
     'cipher' => 'AES-256-CBC',
 

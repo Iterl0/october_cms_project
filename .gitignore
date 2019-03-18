@@ -3,7 +3,6 @@
 /node_modules
 /storage
 /storage/*.key
-/config/database.php
 /themes/hambern-hambern-blank-bootstrap-4
 /vendor
 .env
