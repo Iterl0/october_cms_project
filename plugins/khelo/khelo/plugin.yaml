@@ -1,0 +1,6 @@
+plugin:
+    name: 'khelo.khelo::lang.plugin.name'
+    description: 'khelo.khelo::lang.plugin.description'
+    author: Khelo
+    icon: oc-icon-adjust
+    homepage: ''
