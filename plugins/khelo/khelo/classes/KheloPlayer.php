@@ -35,6 +35,8 @@ class KheloPlayer
             return;
         }
 
+        $this->authorized = true;
+
         $user_bonus_balance = str_replace("Rs.","",$xml->USER_WALLETS->WALLET->BONUS_AVAILABLE);
         $this->userBonusBalance = str_replace(",","",$user_bonus_balance);
 
