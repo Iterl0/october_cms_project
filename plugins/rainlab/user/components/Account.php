@@ -201,7 +201,7 @@ class Account extends ComponentBase
              * check if user is present in game engine
              */
 
-            $user_record = DB::table('users')->where('email', $credentials['login'])->get()->first();
+            $user_record = DB::table('users')->where('username', $credentials['login'])->get()->first();
             if (!$user_record) {
                 throw new AuthException('Wrong email or user does not exist');
             }

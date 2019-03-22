@@ -1,0 +1,10 @@
+title = "Register"
+url = "/register"
+layout = "default"
+is_hidden = 0
+
+[signUpForm]
+redirect = "verify-mobile"
+activationPage = "{{ verify-mobile }}"
+==
+{% component 'signUpForm' %}
