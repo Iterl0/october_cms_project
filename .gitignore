@@ -1,7 +1,12 @@
 .DS_Store
 *.log
 /node_modules
-/storage
+/storage/app/uploads
+/storage/cms
+/storage/framework
+/storage/logs
+/storage/temp
+/storage/system.json
 /storage/*.key
 /themes/hambern-hambern-blank-bootstrap-4
 /vendor
