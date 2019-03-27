@@ -1,0 +1,4 @@
+title: Promotions
+modelClass: khelo\Promotions\Models\Promotion
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,10 @@
+name: Promotions
+form: $/khelo/promotions/models/promotion/fields.yaml
+modelClass: khelo\Promotions\Models\Promotion
+defaultRedirect: khelo/promotions/promotions
+create:
+    redirect: 'khelo/promotions/promotions/update/:id'
+    redirectClose: khelo/promotions/promotions
+update:
+    redirect: khelo/promotions/promotions
+    redirectClose: khelo/promotions/promotions

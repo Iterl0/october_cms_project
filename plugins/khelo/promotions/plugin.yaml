@@ -1,0 +1,11 @@
+plugin:
+    name: 'khelo.promotions::lang.plugin.name'
+    description: 'khelo.promotions::lang.plugin.description'
+    author: khelo
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Promotions
+        url: khelo/promotions/promotions
+        icon: icon-futbol-o

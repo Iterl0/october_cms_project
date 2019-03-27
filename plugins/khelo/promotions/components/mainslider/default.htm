@@ -1,0 +1,37 @@
+{% put styles %}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% endput %}
+
+<div class="section_1_top_left_slider_container">
+
+    {% for slide in slides %}
+        <div>
+            <a href="{{slide.link}}">
+                <div class="section_1_top_left_slider_item" style="background-image: url({{ (slide.img)|media }});"></div>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+<div class="section_1_sider_navigation">
+    <div class="section_1_slider_prevArrow slick-arrow" style=""></div>
+    <div class="section_1_number_of_slides"><span class="section_1_sider_curent_slide">1</span>/<span class="section_1_sider_max_slide">{{slideCount}}</span></div>
+    <div class="section_1_slider_nextArrow slick-arrow" style=""></div>
+</div>
+
+
+{% put scripts %}
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $('.section_1_top_left_slider_container').slick({
+            dots: true,
+            infinite: true,
+            autoplay: {{autoplay}},
+            speed: 300,
+            fade: true,
+            prevArrow: '.section_1_slider_prevArrow',
+            nextArrow: '.section_1_slider_nextArrow',
+            cssEase: 'linear'
+        });
+    </script>
+{% endput %}
