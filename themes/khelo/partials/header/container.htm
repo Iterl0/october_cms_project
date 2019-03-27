@@ -1,0 +1,52 @@
+description = "Header container"
+==
+<?php
+function onStart() {
+     $this['tables'] = 'XX';
+     $this['players'] = 'XX';
+}
+?>
+==
+<header>
+    <div class="top_header">
+        <div class="top_header_first_logo_block">
+            <div class="first_logo"><img src="{{ ('assets/partials/header/header_img_02.png')|media }}"></div>
+            <div><span class="top_header_white_text">Tables: </span><span class="top_header_orange_text"> {{tables}}</span></div>
+            <div><span class="top_header_white_text">Players: </span><span class="top_header_orange_text"> {{players}}</span></div>
+        </div>
+        <div class="logo"><a href="/"><img src="{{ ('assets/partials/header/header_img_05.png')|media }}"></a></div>
+        <div class="top_header_buttons">
+            <div class="top_header_login_button"><a href="#">Login</a></div>
+            <div class="top_header_fb_button"><a href="#"><img src="{{ ('assets/partials/header/header_img_08.png')|media }}"></a></div>
+            <div><a href="#"><img src="{{ ('assets/partials/header/header_img_10.png')|media }}"></a></div>
+        </div>
+    </div>
+    <div class="bottom_header">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="parent_menu_item"><a href="#">Promotions</a>
+                <ul class="inner_top_menu">
+                    <li><a href="#">About us</a>
+                    <li><a href="#">Product & Service</a>
+                    <li><a href="#">How to?</a>
+                    <li><a href="#"> Play Poker</a>
+                    <li><a href="#">Payments</a>
+                    <li><a href="#">Store</a>
+                    <li><a href="#">Contact</a>
+                </ul>
+            </li>
+            <li><a href="#">Leaderboards</a></li>
+            <li class="parent_menu_item"><a href="#">KHELO 365</a>
+                <ul class="inner_top_menu">
+                    <li><a href="#">About us</a>
+                    <li><a href="#">Product & Service</a>
+                    <li><a href="#">How to?</a>
+                    <li><a href="#"> Play Poker</a>
+                    <li><a href="#">Payments</a>
+                    <li><a href="#">Store</a>
+                    <li><a href="#">Contact</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
