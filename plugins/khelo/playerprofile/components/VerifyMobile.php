@@ -11,6 +11,7 @@ use Request;
 use Auth;
 use Redirect;
 use ValidationException;
+use Mail;
 
 class VerifyMobile extends Account
 {
@@ -147,6 +148,19 @@ class VerifyMobile extends Account
             if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
+    }
+
+    public function onResendOtp() {
+        $user = Auth::findUserByLogin(Session::get('user_to_verify'));
+
+        $data = [
+            'name' => $user->name,
+            'code' => $user->activation_code
+        ];
+
+        Mail::send('rainlab.user::mail.activate', $data, function($message) use ($user) {
+            $message->to($user->email, $user->name);
+        });
     }
 
     public function onOtpSubmit() {

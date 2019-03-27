@@ -15,6 +15,7 @@ forceSecure = 0
         </div>
         <div class="col-md-6"></div>
     </div>
+    <p><a href="{{ 'forgot-password'|page }}">Forgotten your password?</a></p>
 {% else %}
     {% partial account ~ '::activation_check' %}
     {% partial 'player_update' %}
