@@ -166,7 +166,7 @@ class VerifyMobile extends Account
 
             $user = Auth::findUserByLogin(Session::get('user_to_verify'));
 
-            $this->preValidateOtp($user, data['otp_code']);
+            $this->preValidateOtp($user, $data['otp_code']);
 
             $url = $this->pageUrl('verify-mobile');
             $url .= '?activate=' . $data['otp_code'];
