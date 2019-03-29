@@ -3,6 +3,10 @@ url = "/"
 layout = "default"
 description = "Welcome to the vanilla theme for OctoberCMS!"
 is_hidden = 0
+
+[signUpForm]
+redirect = "enter-mobile"
+smsGateway = "Nexmo"
 ==
 <div class="section_1">
     <div class="section_1_container">
@@ -13,29 +17,7 @@ is_hidden = 0
 
             </div>
             <div class="section_1_top_right">
-                <div class="section_1_top_right_form_container">
-                    <div class="section_1_top_right_form_title">Signup & Start<br>Winning!</div>
-                    <div class="section_1_top_right_form_1">
-                        <div class="section_1_top_right_form_1_title">Username</div>
-                        <input type="text" placeholder="type your username">
-                    </div>
-                    <div class="section_1_top_right_form_2">
-                        <div class="section_1_top_right_form_2_title">Password</div>
-                        <input type="Password" placeholder="type your password">
-                    </div>
-                    <div class="section_1_top_right_form_3">
-                        <div class="section_1_top_right_form_3_title">Email Address</div>
-                        <input type="email" placeholder="namemail@mail.com">
-                    </div>
-                    <div class="section_1_top_right_form_4">
-                        <input class="checkbox" id="checkbox" type="checkbox" checked>
-                        <label for="checkbox">I agree to the <a href="#">Terms of Use</a> & I am<br> above 18 years</label>
-                    </div>
-                    <div class="section_1_top_right_form_5">
-                        <a class="register_button" href="#">Register</a>
-                        <a class="sign_button" href="#">Sign up</a>
-                    </div>
-                </div>
+                {% component 'signUpForm' %}
             </div>
         </div>
         <div class="section_1_bottom">
@@ -589,7 +571,5 @@ is_hidden = 0
 
             </div>
         </div>
-
-
     </div>
 </div>

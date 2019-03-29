@@ -1,0 +1,4 @@
+title: SmsGateways
+modelClass: khelo\SmsGateway\Models\SmsGateway
+toolbar:
+    buttons: reorder_toolbar

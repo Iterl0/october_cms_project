@@ -2,10 +2,10 @@
     <p>Your account is verified!</p>
 {% else %}
 <h3>Please verify your mobile number</h3>
-<form data-request="onOtpSubmit">
-
-    <div class="form-group">
-        <label for="otp_code">OTP code</label>
+<form class="section_1_top_right_form_container" data-request="onOtpSubmit">
+    <div class="section_1_top_right_form_title">Please verify OTP code</div>
+    <div class="section_1_top_right_form_1">
+        <label for="otp_code" class="section_1_top_right_form_1_title">OTP code</label>
         <input
                 name="otp_code"
                 type="text"
@@ -17,10 +17,13 @@
                 required
                 placeholder="Enter otp code from sms" />
     </div>
-
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="section_1_top_right_form_5">
+        <button type="submit" class="register_button">Submit</button>
+    </div>
 </form>
 <form data-request="onResendOtp">
-    <button type="submit" class="btn btn-default">Resend OTP</button>
+    <div class="section_1_top_right_form_5">
+        <button type="submit" class="register_button">Resend OTP</button>
+    </div>
 </form>
 {% endif %}

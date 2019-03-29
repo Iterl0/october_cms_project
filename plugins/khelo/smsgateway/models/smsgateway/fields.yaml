@@ -1,0 +1,37 @@
+fields:
+    name:
+        label: Name
+        span: full
+        required: 1
+        type: text
+    service_url:
+        label: 'Service url'
+        span: auto
+        required: 1
+        type: text
+    msg_body_param:
+        label: 'Message Body Parameter Name'
+        span: auto
+        type: text
+    recipient_number_param:
+        label: 'Recipient Number Parameter Name'
+        span: auto
+        type: text
+    additional_params:
+        label: 'Additional Parameters'
+        prompt: 'Add new item'
+        span: auto
+        type: repeater
+        commentAbove: 'list here required parameters like service api key, etc.'
+        form:
+            fields:
+                prop:
+                    label: Property
+                    oc.commentPosition: above
+                    span: auto
+                    type: text
+                val:
+                    label: Value
+                    span: auto
+                    required: 0
+                    type: text

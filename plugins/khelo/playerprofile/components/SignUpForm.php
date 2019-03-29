@@ -1,6 +1,6 @@
 <?php namespace Khelo\Playerprofile\Components;
 
-use Khelo\Khelo\Classes\SendSms;
+use Illuminate\Support\Facades\DB;
 use RainLab\User\Components\Account;
 use RainLab\User\Models\Settings as UserSettings;
 use Validator;
@@ -64,12 +64,9 @@ class SignUpForm extends Account
             $rules = [
                 'email'    => 'required|email|between:6,255',
                 'password' => 'required|between:4,255|confirmed',
-                'mobile_number' => 'required|digits:10|unique:users'
+                'username' => 'required|between:2,255',
+                'termsOfUse' => 'required|accepted'
             ];
-
-            if ($this->loginAttribute() == UserSettings::LOGIN_USERNAME) {
-                $rules['username'] = 'required|between:2,255';
-            }
 
             $validation = Validator::make($data, $rules);
             if ($validation->fails()) {
@@ -86,16 +83,7 @@ class SignUpForm extends Account
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
             $user = Auth::register($data, $automaticActivation);
 
-            Event::fire('rainlab.user.register', [$user, $data]);
 
-            /*
-             * Activation is by the user, send the email
-             */
-            if ($userActivation) {
-                $this->sendActivationSms($user);
-
-                Flash::success(Lang::get(/*An activation sms has been sent to your mobile number.*/'rainlab.user::lang.account.activation_email_sent'));
-            }
 
             /*
              * Automatically activated or not required, log the user in
@@ -108,7 +96,6 @@ class SignUpForm extends Account
              * write phone number temporarily to Session for verify process
              */
             Session::put([
-                'mobile_to_verify' => $data['mobile_number'],
                 'user_to_verify' => $data['username'],
                 'intended_password' => $data['password']
             ]);
@@ -127,48 +114,4 @@ class SignUpForm extends Account
         }
     }
 
-    /**
-     * Sends the activation sms to a user
-     * @param  User $user
-     * @return void
-     */
-    protected function sendActivationSms($user)
-    {
-        $user->activation_code = $activation_code = mt_rand(100000, 999999);
-
-        $user->forceSave();
-
-        $link = $this->makeActivationUrl($activation_code);
-
-        $data = [
-            'name' => $user->name,
-            'link' => $link,
-            'code' => $activation_code
-        ];
-
-        Mail::send('rainlab.user::mail.activate', $data, function($message) use ($user) {
-            $message->to($user->email, $user->name);
-        });
-
-//        SendSms::send("Your confirmation code is $activation_code", $user->mobile_number);
-    }
-
-    /**
-     * Returns a link used to activate the user account.
-     * @return string
-     */
-    protected function makeActivationUrl($code)
-    {
-        $params = [
-            $this->property('paramCode') => $code
-        ];
-
-        $url = $this->pageUrl('verify-mobile', $params);
-
-        if (strpos($url, $code) === false) {
-            $url .= '?activate=' . $code;
-        }
-
-        return $url;
-    }
 }

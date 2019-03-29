@@ -72,4 +72,12 @@ $(document).ready(function () {
         cssEase: 'linear'
     });
 
+    $('#signUpForm input:checkbox:not(:checked)').click(function () {
+        $(this).attr('checked', 'checked');
+    });
+
+    $('#signUpForm input:checkbox:checked').click(function () {
+        $(this).prop('checked', false);
+    })
+
 });

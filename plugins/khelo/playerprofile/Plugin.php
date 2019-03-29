@@ -68,6 +68,7 @@ class Plugin extends PluginBase
     {
         return [
             \Khelo\PlayerProfile\Components\SignUpForm::class => 'signUpForm',
+            \Khelo\PlayerProfile\Components\EnterMobile::class => 'enterMobile',
             \Khelo\PlayerProfile\Components\VerifyMobile::class => 'verifyMobile',
         ];
     }
