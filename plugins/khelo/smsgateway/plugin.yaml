@@ -1,0 +1,11 @@
+plugin:
+    name: 'khelo.smsgateway::lang.plugin.name'
+    description: 'khelo.smsgateway::lang.plugin.description'
+    author: khelo
+    icon: oc-icon-envelope
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'SMS Gateway'
+        url: khelo/smsgateway/smsgateways
+        icon: icon-envelope

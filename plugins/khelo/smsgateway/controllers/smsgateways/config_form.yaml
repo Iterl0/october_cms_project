@@ -1,0 +1,10 @@
+name: SmsGateways
+form: $/khelo/smsgateway/models/smsgateway/fields.yaml
+modelClass: khelo\SmsGateway\Models\SmsGateway
+defaultRedirect: khelo/smsgateway/smsgateways
+create:
+    redirect: 'khelo/smsgateway/smsgateways/update/:id'
+    redirectClose: khelo/smsgateway/smsgateways
+update:
+    redirect: khelo/smsgateway/smsgateways
+    redirectClose: khelo/smsgateway/smsgateways

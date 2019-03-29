@@ -1,0 +1,10 @@
+columns:
+    name:
+        label: 'Service name'
+        type: text
+        searchable: true
+        sortable: true
+    service_url:
+        label: URL
+        type: text
+        searchable: true

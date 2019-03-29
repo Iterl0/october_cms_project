@@ -1,52 +1,577 @@
-title = "Vanilla"
+title = "Khelo Main"
 url = "/"
 layout = "default"
 description = "Welcome to the vanilla theme for OctoberCMS!"
 is_hidden = 0
+
+[signUpForm]
+redirect = "enter-mobile"
+smsGateway = "Nexmo"
 ==
-<div class="row">
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail text-center">
-            <br />
-            <img src="{{ 'assets/images/plugin-user.png'|theme }}" alt="RainLab.User" />
-            <div class="caption">
-                <h3>Account management</h3>
-                <p>The user plugin <em>RainLab.User</em> provides the basic account management features.</p>
-                <br />
-                <p>
-                    <a href="{{ 'account'|page }}" class="btn btn-lg btn-info" role="button">View Account</a>
-                </p>
+<div class="section_1">
+    <div class="section_1_container">
+        <div class="section_1_top">
+            <div class="section_1_top_left">
+
+            {% partial 'mainSlider' %}
+
+            </div>
+            <div class="section_1_top_right">
+                {% component 'signUpForm' %}
+            </div>
+        </div>
+        <div class="section_1_bottom">
+            <div class="section_1_bottom_left">
+                <div class="section_1_bottom_left_top">
+                    <div class="section_1_bottom_left_top_1" >First deposit<br>bonus package</div>
+                    <div class="section_1_bottom_left_top_2" >* T&S apply</div>
+                </div>
+                <div class="section_1_bottom_left_bottom">
+                    <div class="section_1_bottom_left_bottom_slider_container">
+                        <a href="#" class="section_1_bottom_left_bottom_slider_item">
+                            <div class="section_1_bottom_left_bottom_slider_item_1">Play free tournaments</div>
+                            <div class="section_1_bottom_left_bottom_slider_item_2">win from 18 lakhs<br>every month</div>
+                        </a>
+                        <a href="#" class="section_1_bottom_left_bottom_slider_item">
+                            <div class="section_1_bottom_left_bottom_slider_item_1">Play free tournaments</div>
+                            <div class="section_1_bottom_left_bottom_slider_item_2">win from 18 lakhs<br>every month</div>
+                        </a>
+                        <a href="#" class="section_1_bottom_left_bottom_slider_item">
+                            <div class="section_1_bottom_left_bottom_slider_item_1">Play free tournaments</div>
+                            <div class="section_1_bottom_left_bottom_slider_item_2">win from 18 lakhs<br>every month</div>
+                        </a>
+                        <a href="#" class="section_1_bottom_left_bottom_slider_item">
+                            <div class="section_1_bottom_left_bottom_slider_item_1">Play free tournaments</div>
+                            <div class="section_1_bottom_left_bottom_slider_item_2">win from 18 lakhs<br>every month</div>
+                        </a>
+                    </div>
+                    <div class="section_1_bottom_left_bottom_sider_navigation">
+                        <div class="section_1_bottom_left_bottom_slider_prevArrow slick-arrow" style=""></div>
+                        <div class="section_1_bottom_left_bottom_slider_nextArrow slick-arrow" style=""></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section_1_bottom_right">
+
+                <div class="section_1_bottom_right_slider_container">
+                    <div class="section_1_bottom_right_slider_item">
+                        <div class="section_1_bottom_right_slider_item_1">
+                            <span class="section_1_bottom_right_orange">EVERY wednesday</span>&nbsp;at 8&nbsp;<span class="section_1_bottom_right_small"> p. m.</span>
+                        </div>
+                        <div class="section_1_bottom_right_slider_item_2">Omaha blues 10K<br> GTD PLO (R+A)</div>
+                        <div class="section_1_bottom_right_slider_item_3">Deposit RS. 1000 using <span class="section_1_bottom_right_orange">promocode: OMAHA</span><br> and get a free ticket or buy RS. 99</div>
+                        <div class="section_1_bottom_right_slider_item_4"><a href="#">Deposit Now</a></div>
+                        <div class="section_1_bottom_right_slider_item_5">* T&S apply</div>
+                    </div>
+                    <div class="section_1_bottom_right_slider_item">
+                        <div class="section_1_bottom_right_slider_item_1">
+                            <span class="section_1_bottom_right_orange">EVERY wednesday</span>&nbsp;at 8&nbsp;<span class="section_1_bottom_right_small"> p. m.</span>
+                        </div>
+                        <div class="section_1_bottom_right_slider_item_2">Omaha blues 10K<br> GTD PLO (R+A)</div>
+                        <div class="section_1_bottom_right_slider_item_3">Deposit RS. 1000 using <span class="section_1_bottom_right_orange">promocode: OMAHA</span><br> and get a free ticket or buy RS. 99</div>
+                        <div class="section_1_bottom_right_slider_item_4"><a href="#">Deposit Now</a></div>
+                        <div class="section_1_bottom_right_slider_item_5">* T&S apply</div>
+                    </div>
+                    <div class="section_1_bottom_right_slider_item">
+                        <div class="section_1_bottom_right_slider_item_1">
+                            <span class="section_1_bottom_right_orange">EVERY wednesday</span>&nbsp;at 8&nbsp;<span class="section_1_bottom_right_small"> p. m.</span>
+                        </div>
+                        <div class="section_1_bottom_right_slider_item_2">Omaha blues 10K<br> GTD PLO (R+A)</div>
+                        <div class="section_1_bottom_right_slider_item_3">Deposit RS. 1000 using <span class="section_1_bottom_right_orange">promocode: OMAHA</span><br> and get a free ticket or buy RS. 99</div>
+                        <div class="section_1_bottom_right_slider_item_4"><a href="#">Deposit Now</a></div>
+                        <div class="section_1_bottom_right_slider_item_5">* T&S apply</div>
+                    </div>
+                    <div class="section_1_bottom_right_slider_item">
+                        <div class="section_1_bottom_right_slider_item_1">
+                            <span class="section_1_bottom_right_orange">EVERY wednesday</span>&nbsp;at 8&nbsp;<span class="section_1_bottom_right_small"> p. m.</span>
+                        </div>
+                        <div class="section_1_bottom_right_slider_item_2">Omaha blues 10K<br> GTD PLO (R+A)</div>
+                        <div class="section_1_bottom_right_slider_item_3">Deposit RS. 1000 using <span class="section_1_bottom_right_orange">promocode: OMAHA</span><br> and get a free ticket or buy RS. 99</div>
+                        <div class="section_1_bottom_right_slider_item_4"><a href="#">Deposit Now</a></div>
+                        <div class="section_1_bottom_right_slider_item_5">* T&S apply</div>
+                    </div>
+                </div>
+                <div class="section_1_bottom_right_slider_navigation">
+                    <div class="section_1_bottom_right_slider_prevArrow slick-arrow" style=""></div>
+                    <div class="section_1_bottom_right_slider_nextArrow slick-arrow" style=""></div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail text-center">
-            <br />
-            <img src="{{ 'assets/images/plugin-blog.png'|theme }}" alt="RainLab.Blog" />
-            <div class="caption">
-                <h3>Blog articles</h3>
-                <p>The user plugin <em>RainLab.Blog</em> provides robust authoring features.</p>
-                <br />
-                <p>
-                    <a href="{{ 'blog'|page }}" class="btn btn-lg btn-success" role="button">View Blog</a>
-                </p>
+{% content "howToPlay.htm" %}
+
+<div class="section_4">
+    <div class="section_4_container">
+        <div class="section_4_top">
+            <div class="section_4_top_text">
+                <div class="section_4_big_text">IMMORTALS</div>
+                <div class="section_4_small_text">
+
+                    <span>Top 10</span> <span class="section_4_small_text_orange">daily cash leaderboard</span>
+
+                </div>
+            </div>
+            <div class="section_4_top_button"><a href="#">View All</a></div>
+        </div>
+        <div class="section_4_table">
+            <div class="section_4_table_header">
+                <div id="section_4_tab_button_1" class="tab_button"><span>Hades</span></div>
+                <div id="section_4_tab_button_2" class="tab_button active_tab"><span>Ares</span></div>
+                <div id="section_4_tab_button_3" class="tab_button"><span>Appolo</span></div>
+            </div>
+            <div class="ectiosn_4_bottom_header">
+                <div class="ectiosn_4_bottom_header_item_1"><span>Time</span></div>
+                <div class="ectiosn_4_bottom_header_item_2"><span>Name</span></div>
+                <div class="ectiosn_4_bottom_header_item_3"><span>Points</span></div>
+                <div class="ectiosn_4_bottom_header_item_4"><span>Prize</span></div>
+            </div>
+            <div class="section_4_table_body">
+                <div id="section_4_tab_1" class="tab_content">
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">17 : 12 : 37</div>
+                        <div class="section_4_table_column_2">adsvsdvbfregreg</div>
+                        <div class="section_4_table_column_3">452</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">11 : 10 : 35</div>
+                        <div class="section_4_table_column_2">fd df d dgbdbde</div>
+                        <div class="section_4_table_column_3">314</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">245</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">177</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">170</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">166</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">154</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">61</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">59</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">46</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                </div>
+                <div id="section_4_tab_2" class="tab_content active_tab_content">
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">07 : 24 : 56</div>
+                        <div class="section_4_table_column_2">oliu,j,,iy,u,j</div>
+                        <div class="section_4_table_column_3">452</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">03 : 12 : 08</div>
+                        <div class="section_4_table_column_2">jhmjmtjtjyhntynytjtjtyujtmtjt</div>
+                        <div class="section_4_table_column_3">314</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">245</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">177</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">170</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">166</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">154</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">61</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">59</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">46</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                </div>
+                <div id="section_4_tab_3" class="tab_content">
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">452</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">314</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">245</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">177</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">170</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">166</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">154</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 50</div>
+                        <div class="section_4_table_column_2">liuliuliuliu</div>
+                        <div class="section_4_table_column_3">61</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 47</div>
+                        <div class="section_4_table_column_2">lordlordlord</div>
+                        <div class="section_4_table_column_3">59</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                    <div class="section_4_table_row">
+                        <div class="section_4_table_column_1">12 : 41 : 52</div>
+                        <div class="section_4_table_column_2">heytmmjxguge</div>
+                        <div class="section_4_table_column_3">46</div>
+                        <div class="section_4_table_column_4">Rs. 1500 Real Chips</div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="section_3">
+    <div class="section_3_container">
+        <div class="section_3_title">
+            <span>Special Offers at the</span> <span>first india’s online poker site</span>
+        </div>
+        <div class="section_3_item_container_container">
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_03.jpg')|media }}">
+                    <span>Free $30 First Deposit Offer</span>
+                </a>
+            </div>
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_05.jpg')|media }}">
+                    <span>High Roller Club</span>
+                </a>
+            </div>
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_07.jpg')|media }}">
+                    <span>$1 Million Spin & Go</span>
+                </a>
+            </div>
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_13.jpg')|media }}">
+                    <span>PokerStars VR</span>
+                </a>
+            </div>
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_14.jpg')|media }}">
+                    <span>First Deposit Bonus</span>
+                </a>
+            </div>
+            <div class="section_3_item_container">
+                <a href="#">
+                    <img src="{{ ('assets/section_3_15.jpg')|media }}">
+                    <span>Stars Rewards</span>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-sm-6 col-md-4">
-        <div class="thumbnail text-center">
-            <br />
-            <img src="{{ 'assets/images/plugin-forum.png'|theme }}" alt="RainLab.Forum" />
-            <div class="caption">
-                <h3>Discussion forum</h3>
-                <p>The forum plugin <em>RainLab.Forum</em> provides community discussion features.</p>
-                <br />
-                <p>
-                    <a href="{{ 'forum'|page }}" class="btn btn-lg btn-warning" role="button">View Forum</a>
-                </p>
+<div class="section_5">
+    <div class="section_5_title">Testimonails</div>
+    <div class="section_5_sider_container">
+        <div class="section_5_sider">
+            <div class="section_5_slide">
+                <div class="section_5_slide_img"><img src="{{ ('assets/section_5_03.jpg')|media }}"></div>
+                <div class="section_5_slide_content">
+                    <div class="section_5_slide_content_top">
+                        <div class="section_5_slide_name">Mr. Ankush Kumar</div>
+                        <div class="section_5_slide_date">02 / 01 / 2017</div>
+                    </div>
+                    <div class="section_5_slide_content_bottom">
+                        "To be very frank, When I got to know about this (Khelo365 VIP Party) trip - I never thought this could be so amazing. I thought OK yaar - we are gonna have some fun, move around, a couple of drinks and then it will be done. But, I didn't expect this. I could only sum it up by saying this was one of the craziest, wildest, awesomest experience I have ever had."
+                    </div>
+                </div>
+            </div>
+            <div class="section_5_slide">
+                <div class="section_5_slide_img"><img src="{{ ('assets/2x9mdy-dhfm_ru-devushka-volosy-kra.jpg')|media }}"></div>
+                <div class="section_5_slide_content">
+                    <div class="section_5_slide_content_top">
+                        <div class="section_5_slide_name">Mr. Ankush Kumar</div>
+                        <div class="section_5_slide_date">02 / 01 / 2017</div>
+                    </div>
+                    <div class="section_5_slide_content_bottom">
+                        "To be very frank, When I got to know about this (Khelo365 VIP Party) trip - I never thought this could be so amazing. I thought OK yaar - we are gonna have some fun, move around, a couple of drinks and then it will be done. But, I didn't expect this. I could only sum it up by saying this was one of the craziest, wildest, awesomest experience I have ever had."
+                    </div>
+                </div>
+            </div>
+            <div class="section_5_slide">
+                <div class="section_5_slide_img"><img src="{{ ('assets/1349039790_03-500x392.jpg')|media }}"></div>
+                <div class="section_5_slide_content">
+                    <div class="section_5_slide_content_top">
+                        <div class="section_5_slide_name">Mr. Ankush Kumar</div>
+                        <div class="section_5_slide_date">02 / 01 / 2017</div>
+                    </div>
+                    <div class="section_5_slide_content_bottom">
+                        "To be very frank, When I got to know about this (Khelo365 VIP Party) trip - I never thought this could be so amazing. I thought OK yaar - we are gonna have some fun, move around, a couple of drinks and then it will be done. But, I didn't expect this. I could only sum it up by saying this was one of the craziest, wildest, awesomest experience I have ever had."
+                    </div>
+                </div>
+            </div>
+            <div class="section_5_slide">
+                <div class="section_5_slide_img"><img src="{{ ('assets/girl-1360863_960_720.jpg')|media }}"></div>
+                <div class="section_5_slide_content">
+                    <div class="section_5_slide_content_top">
+                        <div class="section_5_slide_name">Mr. Ankush Kumar</div>
+                        <div class="section_5_slide_date">02 / 01 / 2017</div>
+                    </div>
+                    <div class="section_5_slide_content_bottom">
+                        "To be very frank, When I got to know about this (Khelo365 VIP Party) trip - I never thought this could be so amazing. I thought OK yaar - we are gonna have some fun, move around, a couple of drinks and then it will be done. But, I didn't expect this. I could only sum it up by saying this was one of the craziest, wildest, awesomest experience I have ever had."
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="section_5_sider_navigation">
+            <div class="section_5_slider_prevArrow"></div>
+            <div class="section_5_number_of_slides"><span class="section_5_sider_curent_slide">1</span>/<span class="section_5_sider_max_slide">4</span></div>
+            <div class="section_5_slider_nextArrow"></div>
+        </div>
+    </div>
+</div>
+
+<div class="section_6">
+    <div class="section_6_column">
+        <div class="section_6_item" >
+            <div class="title">
+
+                NO DOWNLOAD REQUIRED
+
+            </div>
+            <div class="text">
+
+                Khelo365.com is the place you can play free, unlimited Texas Hold'Em and Omaha poker games with no downloads. All you need is a web browser with a good internet connection to play our stunning poker games online. Does not matter whether you are free poker player or cash poker player, you can enjoy our games online at all times.
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                FREE REGISTRATION
+
+            </div>
+            <div class="text">
+
+                Enter some basic registration details and start playing the game absolutely free. Follow our simple 3 step sign up process – Fill the form, email verification, and mobile verification and jump into some super awesome poker action
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                POKER TOURNAMENTS
+
+            </div>
+            <div class="text">
+
+                Khelo365.com is home to the best online poker tournaments. Khelo365 offers the widest range of Real Money poker tournaments for free (Texas Hold’em and Omaha) round the clock with mammoth cash prizes. No strings attached. Surprise tournaments are our hallmark; you never know when it is coming. Join now and play instantly.
+                Skills Rule: Khelo365.com is the place where skills are the numerouno requisite for success. Poker becomes a fairly simple game once you master its rules. All the games that we host are games that require high levels of intelligence and skill. Our site has been designed to cater both the poker pros and novices.
+                Poker Promotions: Khelo365 is the home for exciting offers and promotions in Poker India online. From a thundering welcome bonus to exciting daily freerolls, our platform is brimming with exciting offers at all times. Pull a seat and find what’s there in store for you!
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                PLAY POKER WITH A RS. 1000 WELCOME BONUS
+
+            </div>
+            <div class="text">
+
+                Get 200% flat bonus on your first deposit up to Rs. 1,000. This is an instant bonus amount and will be added to your bonus balance.
+
+            </div>
+        </div>
+    </div>
+    <div class="section_6_column">
+        <div class="section_6_item" >
+            <div class="title">
+
+                PLAY POKER WITH A RS. 1000 WELCOME BONUS
+
+            </div>
+            <div class="text">
+
+                Get 200% flat bonus on your first deposit up to Rs. 1,000. This is an instant bonus amount and will be added to your bonus balance.
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                POKER ONLINE 24/7
+
+            </div>
+            <div class="text">
+
+                Enjoy playing engaging free poker online and cash poker games 24/7. Start playing for free now. No deposit required. You will find easy-to-read materials about the rules of texasholdem and other poker variants.
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                MOST TRUSTED POKER SITE IN INDIA
+
+            </div>
+            <div class="text">
+
+                Ever since the inception of this site, Khelo365.com has remained as India’s most trusted online poker site. We are striving constantly to maintain this legacy and have been successfully doing it so. At Khelo365.com, everyone can play and everyone can win. We are proud to have created a platform for you to enjoy some good poker action and also win huge sums of real cash prizes. Register with us now and enjoy the ultimate online poker experience.
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                PLAY POKER ANYTIME EVERYWHERE
+
+            </div>
+            <div class="text">
+
+                Play Poker on a variety of platforms - Play and enjoy the stunning online poker game on your PC, Smartphones, Macbook or tablet device absolutely free. Download our Khelo365 Mobile APPs and enjoy poker games on the go. Whether you bored during long travel or waiting in the airport lounge, our poker mobile app would give you a great company. Get started playing texasholdem poker on your mobile now!
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                SAFE AND SECURE
+
+            </div>
+            <div class="text">
+
+                Khelo365.com takes utmost concern about the safety of our players’ information. Safeguarding our players’ personal data like email ids, banking details, Credit/debit cards, mobile numbers etc. have always been our top
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="section_6_column">
+        <div class="section_6_item" >
+            <div class="title">
+
+                PLAY POKER ANYTIME EVERYWHERE
+
+            </div>
+            <div class="text">
+
+                Play Poker on a variety of platforms - Play and enjoy the stunning online poker game on your PC, Smartphones, Macbook or tablet device absolutely free. Download our Khelo365 Mobile APPs and enjoy poker games on the go. Whether you bored during long travel or waiting in the airport lounge, our poker mobile app would give you a great company. Get started playing texasholdem poker on your mobile now!
+
+            </div>
+        </div>
+        <div class="section_6_item" >
+            <div class="title">
+
+                SAFE AND SECURE
+
+            </div>
+            <div class="text">
+
+                Khelo365.com takes utmost concern about the safety of our players’ information. Safeguarding our players’ personal data like email ids, banking details, Credit/debit cards, mobile numbers etc. have always been our top priority. Our online gaming portal is completely secured using state-of-the-art encryption techniques to keep the information safe. With certifications like iTech Labs RNG Fair Play certification, Khelo365 offers a fully trustable platform to play poker games in India.
+
+            </div>
+        </div>
+
+
     </div>
 </div>

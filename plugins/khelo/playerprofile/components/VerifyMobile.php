@@ -48,10 +48,8 @@ class VerifyMobile extends Account
     public function onRun()
     {
 
-        if (empty(Session::get('user_to_verify')) || empty(Session::get('mobile_to_verify'))) {
-            if (empty(Session::get('verified'))) {
-                return Redirect::to($this->pageUrl('register'));
-            }
+        if (empty(Session::get('user_to_verify'))) {
+            return Redirect::to($this->pageUrl('/'));
         }
         /*
          * Activation code supplied
@@ -98,6 +96,8 @@ class VerifyMobile extends Account
     {
         try {
 
+            if (Auth::getUser()) return Redirect::to('/');
+
             $code = post('code', $code);
 
             $errorFields = ['code' => 'Invalid activation code supplied'];
@@ -106,26 +106,9 @@ class VerifyMobile extends Account
                 throw new ValidationException($errorFields);
             }
 
-            $q = DB::table('users')
-                ->where('username', Session::get('user_to_verify'))
-                ->where('mobile_number', Session::get('mobile_to_verify'))
-            ;
+            $user = Auth::findUserByLogin(Session::get('user_to_verify'));
 
-            if ($q->where('is_activated', 1)->exists()) {
-                throw new ValidationException('User already activated');
-            }
-
-            $q = DB::table('users')
-                ->where('activation_code', $code);
-
-            if (!$q->exists()) {
-                throw new ValidationException($errorFields);
-            }
-
-            $userId = $q->value('id');
-            if (!$user = Auth::findUserById($userId)) {
-                throw new ValidationException($errorFields);
-            }
+            $this->preValidateOtp($user, $code);
 
             if (!$user->attemptActivation($code)) {
                 throw new ValidationException($errorFields);
@@ -133,10 +116,13 @@ class VerifyMobile extends Account
 
             $create_player_api_result = (new PokerApi())->create_player($user->username, 'Player', 'Poker', 'Kohima', Session::get('intended_password'), $user->email, request()->ip(), '');
 
-            Session::forget('user_to_verify');
-            Session::forget('mobile_to_verify');
-            Session::forget('intended_password');
-            Session::put('verified', 1);
+            Session::forget([
+                'user_to_verify',
+                'mobile_to_verify',
+                'intended_password'.
+                'activeGateway',
+                'callCodePrefix'
+            ]);
 
             /*
              * Sign in the user
@@ -158,9 +144,15 @@ class VerifyMobile extends Account
             'code' => $user->activation_code
         ];
 
-        Mail::send('rainlab.user::mail.activate', $data, function($message) use ($user) {
-            $message->to($user->email, $user->name);
-        });
+        $smsSender= $this->addComponent(
+            '\Khelo\SmsGateway\Components\SendSmsService', 'sendSmsService',
+            [
+                'activeGateway' => Session::get('activeGateway'),
+                'callCodePrefix' => Session::get('callCodePrefix')
+            ]
+        );
+
+        $smsSender->sendMessage($user->mobile_number, $user->activation_code);
     }
 
     public function onOtpSubmit() {
@@ -172,18 +164,9 @@ class VerifyMobile extends Account
                 throw new ValidationException($validation);
             }
 
-            $q = DB::table('users')
-                ->where('username', Session::get('user_to_verify'))
-                ->where('mobile_number', Session::get('mobile_to_verify'));
+            $user = Auth::findUserByLogin(Session::get('user_to_verify'));
 
-            if (!$q->exists()) throw new Exception('User does not exist');
-
-            $user_pending_activation = $q->where('is_activated', 0);
-            if (!$user_pending_activation->exists()) throw new Exception('User already activated');
-
-            $validateOtp = $q->where('activation_code', $data['otp_code'])->exists();
-
-            if (!$validateOtp) throw new Exception('Invalid OTP code');
+            $this->preValidateOtp($user, data['otp_code']);
 
             $url = $this->pageUrl('verify-mobile');
             $url .= '?activate=' . $data['otp_code'];
@@ -194,6 +177,15 @@ class VerifyMobile extends Account
             if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
+    }
+
+    public function preValidateOtp($user, $otpCode) {
+        if ($user->mobile_number != Session::get('mobile_to_verify'))
+            throw new Exception('User pending activation does not exist');
+
+        if ($user->is_activated == 1) throw new Exception('User already activated');
+
+        if ($user->activation_code != $otpCode) throw new Exception('Invalid OTP code');
     }
 
 }

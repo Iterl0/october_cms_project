@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table khelo_smsgateway_'
+    - builder_table_create_khelo_smsgateway_.php
+1.0.3:
+    - 'Updated table khelo_smsgateway_'
+    - builder_table_update_khelo_smsgateway_.php
+1.0.4:
+    - 'Updated table khelo_smsgateway_'
+    - builder_table_update_khelo_smsgateway__2.php
+1.0.5:
+    - 'Updated table khelo_smsgateway_'
+    - builder_table_update_khelo_smsgateway__3.php
+1.0.6:
+    - 'Updated table khelo_smsgateway_'
+    - builder_table_update_khelo_smsgateway__4.php

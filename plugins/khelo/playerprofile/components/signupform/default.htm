@@ -1,51 +1,38 @@
 {% if canRegister %}
-<h3>Register</h3>
-<form data-request="onKheloRegister">
-
-    {% if loginAttribute == "username" %}
-    <div class="form-group">
-        <label for="registerUsername">Username</label>
+<form id="signUpForm" class="section_1_top_right_form_container" data-request="onKheloRegister">
+    <div class="section_1_top_right_form_title">Signup & Start<br>Winning!</div>
+    <div class="section_1_top_right_form_1">
+        <div for="registerUsername" class="section_1_top_right_form_1_title">Username</div>
         <input
                 name="username"
                 type="text"
-                class="form-control"
                 id="registerUsername"
-                placeholder="Enter your username" />
+                placeholder="type your username" />
     </div>
-    {% endif %}
-
-    <div class="form-group">
-        <label for="registerEmail">Email</label>
-        <input
-                name="email"
-                type="email"
-                class="form-control"
-                id="registerEmail"
-                placeholder="Enter your email" />
-    </div>
-
-    <div class="form-group">
-        <label for="registerMobile">Mobile number</label>
-        <input
-                name="mobile_number"
-                type="tel"
-                class="form-control"
-                id="registerMobile"
-                maxlength="10"
-                placeholder="Enter your mobile number" />
-    </div>
-
-    <div class="form-group">
-        <label for="registerPassword">Password</label>
+    <div class="section_1_top_right_form_2">
+        <div for="registerPassword" class="section_1_top_right_form_2_title">Password</div>
         <input
                 name="password"
                 type="password"
-                class="form-control"
                 id="registerPassword"
-                placeholder="Choose a password" />
+                placeholder="type your password" />
     </div>
-
-    <button type="submit" class="btn btn-default">Register</button>
+    <div class="section_1_top_right_form_3">
+        <div for="registerEmail" class="section_1_top_right_form_3_title">Email Address</div>
+        <input
+                name="email"
+                type="email"
+                id="registerEmail"
+                placeholder="namemail@mail.com" />
+    </div>
+    <div class="section_1_top_right_form_4">
+        <input name="termsOfUse" class="checkbox" id="checkbox" type="checkbox" required>
+        <label for="checkbox">I agree to the <a href="#">Terms of Use</a> & I am<br> above 18 years</label>
+    </div>
+    <div class="section_1_top_right_form_5">
+        <button type="submit" class="register_button">Register</button>
+        <a class="sign_button" href="#">Sign up</a>
+    </div>
 </form>
 {% else %}
 <!-- Registration is disabled. -->
