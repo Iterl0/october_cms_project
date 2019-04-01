@@ -2,11 +2,251 @@ name: Menu
 items:
     -
         title: Home
+        nesting: ''
         type: cms-page
+        url: ''
         code: ''
         reference: index
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             ifAuth: '1'
             cssClass: ''
             isExternal: '0'
+    -
+        title: Promotions
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            ifAuth: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'About us'
+                type: url
+                url: /
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '1'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Product & Service'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'How to?'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Play Poker'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Payments
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Store
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contact
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Leaderboards
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            ifAuth: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'KHELO 365'
+        nesting: ''
+        type: url
+        url: /
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            ifAuth: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'About us'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Product & Service'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'How to?'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Play Poker'
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Payments
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Store
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contact
+                nesting: ''
+                type: url
+                url: /
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    ifAuth: '0'
+                    cssClass: ''
+                    isExternal: '0'

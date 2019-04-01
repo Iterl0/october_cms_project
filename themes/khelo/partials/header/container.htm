@@ -1,4 +1,7 @@
 description = "Header container"
+
+[staticMenu]
+code = "menu"
 ==
 <?php
 function onStart() {
@@ -39,32 +42,7 @@ function onStart() {
             {% endif %}
         </div>
     </div>
-    <div class="bottom_header">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li class="parent_menu_item"><a href="#">Promotions</a>
-                <ul class="inner_top_menu">
-                    <li><a href="#">About us</a>
-                    <li><a href="#">Product & Service</a>
-                    <li><a href="#">How to?</a>
-                    <li><a href="#"> Play Poker</a>
-                    <li><a href="#">Payments</a>
-                    <li><a href="#">Store</a>
-                    <li><a href="#">Contact</a>
-                </ul>
-            </li>
-            <li><a href="#">Leaderboards</a></li>
-            <li class="parent_menu_item"><a href="#">KHELO 365</a>
-                <ul class="inner_top_menu">
-                    <li><a href="#">About us</a>
-                    <li><a href="#">Product & Service</a>
-                    <li><a href="#">How to?</a>
-                    <li><a href="#"> Play Poker</a>
-                    <li><a href="#">Payments</a>
-                    <li><a href="#">Store</a>
-                    <li><a href="#">Contact</a>
-                </ul>
-            </li>
-        </ul>
-    </div>
+
+    {% partial 'header/main-menu' %}
+
 </header>

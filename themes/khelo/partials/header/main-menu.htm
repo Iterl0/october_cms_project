@@ -1,0 +1,24 @@
+description = "Main navbar menu"
+
+[viewBag]
+
+[staticMenu]
+code = "menu"
+==
+<div class="bottom_header">
+    {% if staticMenu.menuItems %}
+        <ul>
+            {% for item in staticMenu.menuItems %}
+                <li class="{{ item.items|length > 0 ? 'parent_menu_item' : ''}}"><a href="{{ item.url }}">{{ item.title }}</a>
+                    {% if item.items|length > 0 %}
+                    <ul class="inner_top_menu">
+                        {% for subItem in item.items %}
+                        <li><a href="{{ subItem.url }}">{{ subItem.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
