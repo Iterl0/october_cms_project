@@ -1,5 +1,6 @@
 <?php namespace RainLab\Pages\Classes;
 
+use RainLab\User\Facades\Auth;
 use Url;
 use File;
 use Lang;
@@ -379,24 +380,23 @@ class Menu extends CmsObject
          *
          * For example to hide entries where group is not 'registered' you can use the following code. It can
          * be used to show different menus for different user groups.
-         *
-         * Event::listen('pages.menu.referencesGenerated', function (&$items) {
-         *     $iterator = function ($menuItems) use (&$iterator, $clusterRepository) {
-         *         $result = [];
-         *         foreach ($menuItems as $item) {
-         *             if (isset($item->viewBag['group']) && $item->viewBag['group'] !== "registered") {
-         *                 $item->viewBag['isHidden'] = "1";
-         *             }
-         *             if ($item->items) {
-         *                 $item->items = $iterator($item->items);
-         *             }
-         *             $result[] = $item;
-         *         }
-         *         return $result;
-         *     };
-         *     $items = $iterator($items);
-         * });
          */
+         Event::listen('pages.menu.referencesGenerated', function (&$items) {
+             $iterator = function ($menuItems) use (&$iterator) {
+                 $result = [];
+                 foreach ($menuItems as $item) {
+                     if (isset($item->viewBag['ifAuth']) && $item->viewBag['ifAuth'] == '1' && !Auth::getUser()) {
+                         $item->viewBag['isHidden'] = "1";
+                     }
+                     if ($item->items) {
+                         $item->items = $iterator($item->items);
+                     }
+                     $result[] = $item;
+                 }
+                 return $result;
+             };
+             $items = $iterator($items);
+         });
 
         Event::fire('pages.menu.referencesGenerated', [&$items]);
 

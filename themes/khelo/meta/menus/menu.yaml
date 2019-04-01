@@ -7,5 +7,6 @@ items:
         reference: index
         viewBag:
             isHidden: '0'
+            ifAuth: '1'
             cssClass: ''
             isExternal: '0'
