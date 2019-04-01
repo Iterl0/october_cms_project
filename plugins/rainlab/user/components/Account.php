@@ -201,22 +201,20 @@ class Account extends ComponentBase
              * check if user is present in game engine
              */
 
-            $user_record = DB::table('users')->where('username', $credentials['login'])->get()->first();
-            if (!$user_record) {
+            $user = Auth::findUserByLogin($credentials['login']);
+            if (!$user) {
                 throw new AuthException('Wrong email or user does not exist');
             }
 
-            $user = new KheloPlayer($user_record->name, $credentials['password']);
-            if (!$user->isAuthorized()) {
+            $player = new KheloPlayer($user->username, $credentials['password']);
+            if (!$player->isAuthorized()) {
                 throw new AuthException($user->getErrors());
             }
 
-            Auth::login(Auth::findUserById($user_record->id));
-            Session::put('player_info', serialize($user));
-
             Event::fire('rainlab.user.beforeAuthenticate', [$this, $credentials]);
-
             $user = Auth::authenticate($credentials, true);
+            Session::put('player_info', serialize($player));
+
             if ($user->isBanned()) {
                 Auth::logout();
                 throw new AuthException(/*Sorry, this user is currently not activated. Please contact us for further assistance.*/'rainlab.user::lang.account.banned');
