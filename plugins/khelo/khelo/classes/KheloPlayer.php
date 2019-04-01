@@ -80,6 +80,21 @@ class KheloPlayer
         return (isset($xml->USERID)) ? $xml : null;
     }
 
+    public function getAllProps() {
+        return (object)[
+            'errors' => $this->error,
+            'authorized' => $this->isAuthorized(),
+            'userSid' => $this->getUserSid(),
+            'userCashAvailable' => $this->userCashAvailable,
+            'userBonusBalance' => $this->userBonusBalance,
+            'userInplayBalance' => $this->userInplayBalance,
+            'userAvailableBalance' => $this->userAvailableBalance,
+            'userVipLevel' => $this->userVipLevel,
+            'userCompPoints' => $this->userCompPoints,
+            'userTmoneyBalance' => $this->userTmoneyBalance
+        ];
+    }
+
     public function getErrors() {
         return $this->error;
     }
