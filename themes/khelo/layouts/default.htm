@@ -3,6 +3,16 @@ description = "Default layout"
 [session]
 security = "all"
 ==
+<?php
+
+use Illuminate\Support\Facades\Session;
+
+function onStart()
+{
+    $this->page["userPokerInfo"] = unserialize(Session::get('player_info'))->getAllProps() ?? null;
+}
+?>
+==
 <!DOCTYPE html>
 <html>
     <head>

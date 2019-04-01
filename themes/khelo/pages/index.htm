@@ -17,7 +17,19 @@ smsGateway = "Nexmo"
 
             </div>
             <div class="section_1_top_right">
-                {% component 'signUpForm' %}
+                {% if user %}
+                    <div class="section_1_top_right_form_container">
+                        <div class="section_1_top_right_form_title">My account</div>
+                        <div class="section_1_top_right_form_inner_1 section_1_top_right_form_inner_1_1">{{ user.username}}</div>
+                        <div class="section_1_top_right_form_inner_1 section_1_top_right_form_inner_1_2">{{ this.page.userPokerInfo.userAvailableBalance }}</div>
+                        <div class="section_1_top_right_form_5">
+                            <a class="register_inner_button" href="#">Play Poker</a>
+                            <a class="sign_button_logged" href="#">Buy Chips</a>
+                        </div>
+                    </div>
+                {% else %}
+                    {% component 'signUpForm' %}
+                {% endif %}
             </div>
         </div>
         <div class="section_1_bottom">

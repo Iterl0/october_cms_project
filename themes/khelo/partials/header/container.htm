@@ -8,17 +8,35 @@ function onStart() {
 ?>
 ==
 <header>
-    <div class="top_header">
+    <div class="top_header {{ user ? 'logged' : '' }}">
         <div class="top_header_first_logo_block">
             <div class="first_logo"><img src="{{ ('assets/partials/header/header_img_02.png')|media }}"></div>
             <div><span class="top_header_white_text">Tables: </span><span class="top_header_orange_text"> {{tables}}</span></div>
             <div><span class="top_header_white_text">Players: </span><span class="top_header_orange_text"> {{players}}</span></div>
         </div>
         <div class="logo"><a href="/"><img src="{{ ('assets/partials/header/header_img_05.png')|media }}"></a></div>
-        <div class="top_header_buttons">
-            <div class="top_header_login_button"><a href="#">Login</a></div>
-            <div class="top_header_fb_button"><a href="#"><img src="{{ ('assets/partials/header/header_img_08.png')|media }}"></a></div>
-            <div><a href="#"><img src="{{ ('assets/partials/header/header_img_10.png')|media }}"></a></div>
+        <div class="top_header_buttons {{ user ? 'logged' : '' }}">
+            {% if user %}
+                <div class="header_block_17"><span class="header_block_17_white_text">{{ user.username }}</span> <span class="header_block_17_orange_text">Rs. 00000000</span></div>
+                <a class="header_block_18"><span>Buy Chips</span><img src="{{ ('assets/partials/header/1_1_5.png')|media }}"></a>
+                <ul>
+                    <li class="header_block_19 parent_menu_item">
+                        <span>Account</span>
+                        <img src="{{ ('assets/partials/header/1_1_4.png')|media }}">
+                        <ul class="inner_top_menu">
+                            <li><a href="#">My profile</a>
+                            <li><a href="#">Account balance</a>
+                            <li><a href="#">Khelo365 Coins</a>
+                            <li><a href="#">SitNGo Coins</a>
+                            <li class="logged_logout"><a href="#" data-request="onLogout">Logout</a>
+                        </ul>
+                    </li>
+                </ul>
+            {% else %}
+                <div class="top_header_login_button"><a href="#">Login</a></div>
+                <div class="top_header_fb_button"><a href="#"><img src="{{ ('assets/partials/header/header_img_08.png')|media }}"></a></div>
+                <div><a href="#"><img src="{{ ('assets/partials/header/header_img_10.png')|media }}"></a></div>
+            {% endif %}
         </div>
     </div>
     <div class="bottom_header">
