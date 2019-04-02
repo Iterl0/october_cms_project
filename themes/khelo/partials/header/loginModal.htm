@@ -1,0 +1,13 @@
+[viewBag]
+
+[account]
+paramCode = "code"
+forceSecure = 0
+==
+<div id="loginModal" class="loginModal">
+    <div class="modal-content section_1_top_right_form_1">
+        <div class="loginModalTitle">Login</div>
+        {% partial account ~ '::signin' %}
+        <p><a href="{{ 'forgot-password'|page }}">Forgotten your password?</a></p>
+    </div>
+</div>

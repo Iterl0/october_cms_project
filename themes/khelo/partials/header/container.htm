@@ -10,6 +10,7 @@ function onStart() {
 }
 ?>
 ==
+{% partial 'header/loginModal' %}
 <header>
     <div class="top_header {{ user ? 'logged' : '' }}">
         <div class="top_header_first_logo_block">
@@ -36,7 +37,7 @@ function onStart() {
                     </li>
                 </ul>
             {% else %}
-                <div class="top_header_login_button"><a href="#">Login</a></div>
+            <div id="loginPopupBtn" class="top_header_login_button"><a href="#">Login</a></div>
                 <div class="top_header_fb_button"><a href="#"><img src="{{ ('assets/partials/header/header_img_08.png')|media }}"></a></div>
                 <div><a href="#"><img src="{{ ('assets/partials/header/header_img_10.png')|media }}"></a></div>
             {% endif %}
