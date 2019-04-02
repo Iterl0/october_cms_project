@@ -1,4 +1,4 @@
-name: Menu
+name: 'Top main menu'
 items:
     -
         title: Home
@@ -31,9 +31,13 @@ items:
         items:
             -
                 title: 'About us'
+                nesting: ''
                 type: url
                 url: /
                 code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     ifAuth: '1'
@@ -125,13 +129,9 @@ items:
                     isExternal: '0'
     -
         title: Leaderboards
-        nesting: ''
         type: url
-        url: /
+        url: '#section4'
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             ifAuth: '0'
