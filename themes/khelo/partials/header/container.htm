@@ -18,7 +18,9 @@ function onStart() {
             <div><span class="top_header_white_text">Tables: </span><span class="top_header_orange_text"> {{tables}}</span></div>
             <div><span class="top_header_white_text">Players: </span><span class="top_header_orange_text"> {{players}}</span></div>
         </div>
+        <div class="mobile-menu-button"><img src="{{ ('assets/menu-button.png')|media }}" alt=""></div>
         <div class="logo"><a href="/"><img src="{{ ('assets/partials/header/header_img_05.png')|media }}"></a></div>
+        <div class="header_logged_logout_button"><img src="{{ ('assets/partials/header/1_1_3.png')|media }}"></div>
         <div class="top_header_buttons {{ user ? 'logged' : '' }}">
             {% if user %}
                 <div class="header_block_17"><span class="header_block_17_white_text">{{ user.username }}</span> <span class="header_block_17_orange_text">Rs. 00000000</span></div>
