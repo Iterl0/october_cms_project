@@ -1,5 +1,6 @@
 <?php namespace Khelo\Playerprofile\Components;
 
+use Illuminate\Support\Facades\Redirect;
 use RainLab\User\Components\Account;
 use RainLab\User\Models\User;
 use Auth;
@@ -53,7 +54,9 @@ class EnterMobile extends Account
     }
 
     public function onRun() {
-
+        if (Auth::getUser()) {
+            return Redirect::to('/');
+        }
         $this->page['phoneNumberLength'] = $this->getPhoneNumberLength();
     }
 
