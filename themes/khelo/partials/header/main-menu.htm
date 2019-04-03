@@ -8,7 +8,7 @@ code = "menu"
 <div class="bottom_header">
     {% if staticMenu.menuItems %}
         <ul>
-            {% for item in staticMenu.menuItems %}
+            {% for item in staticMenu.menuItems if not item.viewBag.isHidden %}
                 <li class="{{ item.items|length > 0 ? 'parent_menu_item' : ''}}"><a href="{{ item.url }}">{{ item.title }}</a>
                     {% if item.items|length > 0 %}
                     <ul class="inner_top_menu">
