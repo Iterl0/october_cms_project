@@ -385,7 +385,8 @@ class Menu extends CmsObject
              $iterator = function ($menuItems) use (&$iterator) {
                  $result = [];
                  foreach ($menuItems as $item) {
-                     if (isset($item->viewBag['ifAuth']) && $item->viewBag['ifAuth'] == '1' && !Auth::getUser()) {
+                     $showTo = $item->viewBag['showToUserGroup'] ?? null;
+                     if (isset($showTo) && (($showTo == 'user' && !Auth::getUser()) || ($showTo == 'guest' && Auth::getUser()) || ($showTo == 'none'))) {
                          $item->viewBag['isHidden'] = "1";
                      }
                      if ($item->items) {
