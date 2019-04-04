@@ -45,7 +45,7 @@ class EditorSetting extends Model
 
     protected $defaultHtmlNoWrapTags = 'figure, script, style';
 
-    protected $defaultHtmlRemoveTags = 'script, style';
+    protected $defaultHtmlRemoveTags = null;
 
     protected $defaultHtmlLineBreakerTags = 'figure, table, hr, iframe, form, dl';
 

@@ -146,6 +146,8 @@
         }
 
         function o(a) {
+            // prevent url sanitize for correct markup interpretation
+            return a;
             if (/^(https?:|ftps?:|)\/\//i.test(a)) {
                 if (!n(a) && !n("http:" + a)) return ""
             } else a = encodeURIComponent(a).replace(/%23/g, "#").replace(/%2F/g, "/").replace(/%25/g, "%").replace(/mailto%3A/gi, "mailto:").replace(/file%3A/gi, "file:").replace(/sms%3A/gi, "sms:").replace(/tel%3A/gi, "tel:").replace(/notes%3A/gi, "notes:").replace(/data%3Aimage/gi, "data:image").replace(/blob%3A/gi, "blob:").replace(/webkit-fake-url%3A/gi, "webkit-fake-url:").replace(/%3F/g, "?").replace(/%3D/g, "=").replace(/%26/g, "&").replace(/&amp;/g, "&").replace(/%2C/g, ",").replace(/%3B/g, ";").replace(/%2B/g, "+").replace(/%40/g, "@").replace(/%5B/g, "[").replace(/%5D/g, "]").replace(/%7B/g, "{").replace(/%7D/g, "}");
@@ -1033,12 +1035,12 @@
             rangeElement: i
         }
     }, a.extend(a.FE.DEFAULTS, {
-        htmlAllowedTags: ["a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi", "bdo", "blockquote", "br", "button", "canvas", "caption", "cite", "code", "col", "colgroup", "datalist", "dd", "del", "details", "dfn", "dialog", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "i", "iframe", "img", "input", "ins", "kbd", "keygen", "label", "legend", "li", "link", "main", "map", "mark", "menu", "menuitem", "meter", "nav", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param", "pre", "progress", "queue", "rp", "rt", "ruby", "s", "samp", "script", "style", "section", "select", "small", "source", "span", "strike", "strong", "sub", "summary", "sup", "table", "tbody", "td", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "u", "ul", "var", "video", "wbr"],
-        htmlRemoveTags: ["script", "style"],
+        htmlAllowedTags: ["a", "abbr", "address", "area", "article", "aside", "audio", "b", "base", "bdi", "bdo", "blockquote", "br", "button", "canvas", "caption", "cite", "code", "col", "colgroup", "datalist", "dd", "del", "details", "dfn", "dialog", "div", "dl", "dt", "em", "embed", "fieldset", "figcaption", "figure", "footer", "form", "h1", "h2", "h3", "h4", "h5", "h6", "header", "hgroup", "hr", "i", "iframe", "img", "input", "ins", "kbd", "keygen", "label", "legend", "li", "link", "main", "map", "mark", "menu", "menuitem", "meter", "nav", "noscript", "object", "ol", "optgroup", "option", "output", "p", "param", "pre", "progress", "queue", "rp", "rt", "ruby", "s", "samp", "script", "style", "section", "select", "small", "source", "span", "strike", "strong", "sub", "summary", "sup", "table", "tbody", "td", "textarea", "tfoot", "th", "thead", "time", "tr", "track", "u", "ul", "var", "video", "wbr", "html", "head"],
+        htmlRemoveTags: [],
         htmlAllowedAttrs: ["accept", "accept-charset", "accesskey", "action", "align", "allowfullscreen", "allowtransparency", "alt", "async", "autocomplete", "autofocus", "autoplay", "autosave", "background", "bgcolor", "border", "charset", "cellpadding", "cellspacing", "checked", "cite", "class", "color", "cols", "colspan", "content", "contenteditable", "contextmenu", "controls", "coords", "data", "data-.*", "datetime", "default", "defer", "dir", "dirname", "disabled", "download", "draggable", "dropzone", "enctype", "for", "form", "formaction", "frameborder", "headers", "height", "hidden", "high", "href", "hreflang", "http-equiv", "icon", "id", "ismap", "itemprop", "keytype", "kind", "label", "lang", "language", "list", "loop", "low", "max", "maxlength", "media", "method", "min", "mozallowfullscreen", "multiple", "name", "novalidate", "open", "optimum", "pattern", "ping", "placeholder", "poster", "preload", "pubdate", "radiogroup", "readonly", "rel", "required", "reversed", "rows", "rowspan", "sandbox", "scope", "scoped", "scrolling", "seamless", "selected", "shape", "size", "sizes", "span", "src", "srcdoc", "srclang", "srcset", "start", "step", "summary", "spellcheck", "style", "tabindex", "target", "title", "type", "translate", "usemap", "value", "valign", "webkitallowfullscreen", "width", "wrap"],
         htmlAllowComments: !0,
         htmlUntouched: !1,
-        fullPage: !1
+        fullPage: 1
     }), a.FE.HTML5Map = {B: "STRONG", I: "EM", STRIKE: "S"}, a.FE.MODULES.clean = function (b) {
         function c(a) {
             if (a.nodeType == Node.ELEMENT_NODE && a.getAttribute("class") && a.getAttribute("class").indexOf("fr-marker") >= 0) return !1;
@@ -1089,7 +1091,7 @@
         function h(a, c, d) {
             if (b.opts.fullPage) {
                 var e = b.html.extractDoctype(d), f = g(b.html.extractNodeAttrs(d, "html"));
-                c = null == c ? b.html.extractNode(d, "head") || "<title></title>" : c;
+                c = null == c ? b.html.extractNode(d, "head") || "" : c;
                 var h = g(b.html.extractNodeAttrs(d, "head")), i = g(b.html.extractNodeAttrs(d, "body"));
                 return e + "<html" + f + "><head" + h + ">" + c + "</head><body" + i + ">" + a + "</body></html>"
             }
@@ -1495,7 +1497,7 @@
             var d = b.clean.html(c || "", [], [], b.opts.fullPage);
             if (b.opts.fullPage) {
                 var e = w(d, "body") || (d.indexOf("<body") >= 0 ? "" : d), f = x(d, "body"),
-                    g = w(d, "head") || "<title></title>", h = x(d, "head"),
+                    g = w(d, "head") || "", h = x(d, "head"),
                     i = a("<div>").append(g).contents().each(function () {
                         (this.nodeType == Node.COMMENT_NODE || ["BASE", "LINK", "META", "NOSCRIPT", "SCRIPT", "STYLE", "TEMPLATE", "TITLE"].indexOf(this.tagName) >= 0) && this.parentNode.removeChild(this)
                     }).end().html().trim();
@@ -2279,7 +2281,7 @@
         OPEN_SQUARE_BRACKET: 219,
         BACKSLASH: 220,
         CLOSE_SQUARE_BRACKET: 221
-    }, a.extend(a.FE.DEFAULTS, {enter: a.FE.ENTER_P, multiLine: !0, tabSpaces: 0}), a.FE.MODULES.keys = function (b) {
+    }, a.extend(a.FE.DEFAULTS, {enter: a.FE.ENTER_BR, multiLine: 0, tabSpaces: 0}), a.FE.MODULES.keys = function (b) {
         function c(a) {
             b.opts.multiLine ? b.helpers.isIOS() || (a.preventDefault(), a.stopPropagation(), b.selection.isCollapsed() || b.selection.remove(), b.cursor.enter()) : (a.preventDefault(), a.stopPropagation())
         }
@@ -5515,7 +5517,7 @@
         "image.size": "[_BUTTONS_][_SIZE_LAYER_]"
     }), a.extend(a.FE.DEFAULTS, {
         imageInsertButtons: ["imageBack", "|", "imageUpload", "imageByURL"],
-        imageEditButtons: ["imageReplace", "imageAlign", "imageRemove", "|", "imageLink", "linkOpen", "linkEdit", "linkRemove", "-", "imageDisplay", "imageStyle", "imageAlt", "imageSize"],
+        imageEditButtons: ["imageReplace", "imageRemove", "|", "imageLink", "linkOpen", "linkEdit", "linkRemove", "-", "imageStyle", "imageAlt", "imageSize"],
         imageAltButtons: ["imageBack", "|"],
         imageSizeButtons: ["imageBack", "|"],
         imageUploadURL: "https://i.froala.com/upload",
@@ -5528,7 +5530,7 @@
         imageResize: !0,
         imageResizeWithPercent: !1,
         imageRoundPercent: !1,
-        imageDefaultWidth: 300,
+        imageDefaultWidth: null,
         imageDefaultAlign: "center",
         imageDefaultDisplay: "block",
         imageSplitHTML: !1,
@@ -11861,7 +11863,7 @@ $.FroalaEditor.DEFAULTS.key = 'HHMDUGENKACTMXQL==';
     RichEditor.DEFAULTS = {
         linksHandler: null,
         stylesheet: null,
-        fullpage: false,
+        fullpage: true,
         editorLang: 'en',
         toolbarButtons: null,
         allowEmptyTags: null,
