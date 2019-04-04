@@ -124,3 +124,7 @@
     padding: 10px 20px;
     background: #fff;
 }
+
+.control-treeview.treeview-light ol >li >div.lock:before {
+  background-image: url(../../../../../storage/app/media/assets/backend/treeview-icons-key.png);
+}
