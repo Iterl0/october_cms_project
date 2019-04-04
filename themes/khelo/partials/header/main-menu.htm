@@ -12,7 +12,7 @@ code = "menu"
                 <li class="{{ item.items|length > 0 ? 'parent_menu_item' : ''}}"><a href="{{ item.url }}">{{ item.title }}</a>
                     {% if item.items|length > 0 %}
                     <ul class="inner_top_menu">
-                        {% for subItem in item.items %}
+                        {% for subItem in item.items if not subItem.viewBag.isHidden %}
                         <li><a href="{{ subItem.url }}">{{ subItem.title }}</a></li>
                         {% endfor %}
                     </ul>
