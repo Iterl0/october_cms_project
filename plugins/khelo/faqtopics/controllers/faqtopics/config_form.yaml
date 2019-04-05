@@ -1,0 +1,10 @@
+name: FaqTopics
+form: $/khelo/faqtopics/models/faqtopic/fields.yaml
+modelClass: khelo\FaqTopics\Models\FaqTopic
+defaultRedirect: khelo/faqtopics/faqtopics
+create:
+    redirect: 'khelo/faqtopics/faqtopics/update/:id'
+    redirectClose: khelo/faqtopics/faqtopics
+update:
+    redirect: khelo/faqtopics/faqtopics
+    redirectClose: khelo/faqtopics/faqtopics

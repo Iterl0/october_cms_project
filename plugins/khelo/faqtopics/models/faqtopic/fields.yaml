@@ -1,0 +1,31 @@
+fields:
+    name:
+        label: 'Faq Topic'
+        span: full
+        required: 1
+        type: text
+    published:
+        label: Published
+        span: auto
+        default: 0
+        required: 0
+        type: switch
+    question_answer:
+        label: 'Q / A'
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                q:
+                    label: Question
+                    size: tiny
+                    span: full
+                    required: 1
+                    type: textarea
+                a:
+                    label: Answer
+                    size: giant
+                    span: full
+                    required: 1
+                    type: textarea

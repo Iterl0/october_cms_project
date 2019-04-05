@@ -1,0 +1,4 @@
+title: FaqTopics
+modelClass: khelo\FaqTopics\Models\FaqTopic
+toolbar:
+    buttons: reorder_toolbar

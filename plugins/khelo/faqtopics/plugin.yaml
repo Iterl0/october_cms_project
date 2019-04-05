@@ -1,0 +1,11 @@
+plugin:
+    name: 'khelo.faqtopics::lang.plugin.name'
+    description: 'khelo.faqtopics::lang.plugin.description'
+    author: khelo
+    icon: oc-icon-question-circle
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Faq
+        url: khelo/faqtopics/faqtopics
+        icon: icon-question-circle
