@@ -63,21 +63,21 @@ class Plugin extends PluginBase
     {
         return [
             'pages' => [
-                'label'       => 'rainlab.pages::lang.plugin.name',
+                'label'       => 'Menu',
                 'url'         => Backend::url('rainlab/pages'),
-                'icon'        => 'icon-files-o',
+                'icon'        => 'icon-sitemap-o',
                 'iconSvg'     => 'plugins/rainlab/pages/assets/images/pages-icon.svg',
                 'permissions' => ['rainlab.pages.*'],
                 'order'       => 200,
 
                 'sideMenu' => [
-                    'pages' => [
-                        'label'       => 'rainlab.pages::lang.page.menu_label',
-                        'icon'        => 'icon-files-o',
-                        'url'         => 'javascript:;',
-                        'attributes'  => ['data-menu-item'=>'pages'],
-                        'permissions' => ['rainlab.pages.manage_pages']
-                    ],
+//                    'pages' => [
+//                        'label'       => 'rainlab.pages::lang.page.menu_label',
+//                        'icon'        => 'icon-files-o',
+//                        'url'         => 'javascript:;',
+//                        'attributes'  => ['data-menu-item'=>'pages'],
+//                        'permissions' => ['rainlab.pages.manage_pages']
+//                    ],
                     'menus' => [
                         'label'       => 'rainlab.pages::lang.menu.menu_label',
                         'icon'        => 'icon-sitemap',
@@ -85,20 +85,20 @@ class Plugin extends PluginBase
                         'attributes'  => ['data-menu-item'=>'menus'],
                         'permissions' => ['rainlab.pages.manage_menus']
                     ],
-                    'content' => [
-                        'label'       => 'rainlab.pages::lang.content.menu_label',
-                        'icon'        => 'icon-file-text-o',
-                        'url'         => 'javascript:;',
-                        'attributes'  => ['data-menu-item'=>'content'],
-                        'permissions' => ['rainlab.pages.manage_content']
-                    ],
-                    'snippets' => [
-                        'label'       => 'rainlab.pages::lang.snippet.menu_label',
-                        'icon'        => 'icon-newspaper-o',
-                        'url'         => 'javascript:;',
-                        'attributes'  => ['data-menu-item'=>'snippet'],
-                        'permissions' => ['rainlab.pages.access_snippets']
-                    ]
+//                    'content' => [
+//                        'label'       => 'rainlab.pages::lang.content.menu_label',
+//                        'icon'        => 'icon-file-text-o',
+//                        'url'         => 'javascript:;',
+//                        'attributes'  => ['data-menu-item'=>'content'],
+//                        'permissions' => ['rainlab.pages.manage_content']
+//                    ],
+//                    'snippets' => [
+//                        'label'       => 'rainlab.pages::lang.snippet.menu_label',
+//                        'icon'        => 'icon-newspaper-o',
+//                        'url'         => 'javascript:;',
+//                        'attributes'  => ['data-menu-item'=>'snippet'],
+//                        'permissions' => ['rainlab.pages.access_snippets']
+//                    ]
                 ]
             ]
         ];
