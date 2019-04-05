@@ -1,0 +1,6 @@
+plugin:
+    name: 'khelo.modifybackendmenu::lang.plugin.name'
+    description: 'khelo.modifybackendmenu::lang.plugin.description'
+    author: khelo
+    icon: oc-icon-wrench
+    homepage: ''
