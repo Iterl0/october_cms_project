@@ -26,4 +26,14 @@ class FaqTopic extends Model
     ];
 
     protected $jsonable = ['question_answer'];
+
+    public function publish() {
+        $this->published = 1;
+        $this->save();
+    }
+
+    public function unpublish() {
+        $this->published = 0;
+        $this->save();
+    }
 }
