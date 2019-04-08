@@ -1,0 +1,8 @@
+{{ record.name }}
+
+{% for qa in record.question_answer %}
+
+    <p><span style="color: red;">Q</span> {{ qa.q }}</p>
+    <p><span style="color: green;">A</span> {{ qa.a}}</p>
+
+{% endfor %}

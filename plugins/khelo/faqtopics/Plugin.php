@@ -6,6 +6,9 @@ class Plugin extends PluginBase
 {
     public function registerComponents()
     {
+        return [
+            \Khelo\FaqTopics\Components\ShowSingle::class => 'showSingle',
+        ];
     }
 
     public function registerSettings()
