@@ -40,10 +40,18 @@
 @body-bg-color-black: #181818;
 @body-bg-color-dark-grey: #2c2d32;
 @main-body-text-color: #73797e;
+@content-block-gutter-size: 20px;
 
 .default-container-width {
   max-width: 1340px;
   margin: 0 auto;
+}
+
+.green-gradient {
+  background-image: -moz-linear-gradient( 90deg, rgb(58,96,38) 0%, rgb(80,138,55) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(58,96,38) 0%, rgb(80,138,55) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(58,96,38) 0%, rgb(80,138,55) 100%);
+  box-shadow: 0px 1px 0px 0px rgba(1, 2, 2, 0.75);
 }
 
 @mobile:      ~"only screen and (max-width: 529px)";
