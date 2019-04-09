@@ -6,7 +6,7 @@
     data-status="<?= $groupStatus || !$item->items ? 'expanded' : 'collapsed' ?>"
     data-menu-item="<?= e(json_encode($item->toArray())) ?>"
 >
-    <div>
+    <div class="<?= (isset($item->viewBag['showToUserGroup']) && $item->viewBag['showToUserGroup'] == 'user') ? 'lock' : null ?>">
         <a href="#" data-menu-item-link>
             <span class="title"><?= e($item->title) ?></span>
             <span class="comment"><?= e($this->getReferenceDescription($item)) ?></span>

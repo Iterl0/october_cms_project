@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table khelo_faqtopics_'
+    - builder_table_create_khelo_faqtopics_.php
+1.0.3:
+    - 'Updated table khelo_faqtopics_'
+    - builder_table_update_khelo_faqtopics_.php
+1.0.4:
+    - 'Updated table khelo_faqtopics_'
+    - builder_table_update_khelo_faqtopics__2.php
+1.0.5:
+    - 'Updated table khelo_faqtopics_add_slug_column'
+    - builder_table_update_khelo_faqtopics__3.php
+1.0.6:
+    - 'Updated table khelo_faqtopics_'
+    - builder_table_update_khelo_faqtopics__4.php

@@ -128,7 +128,7 @@ class RichEditor extends FormWidgetBase
     protected function loadAssets()
     {
         $this->addCss('css/richeditor.css', 'core');
-        $this->addJs('js/build-min.js', 'core');
+        $this->addJs('js/build-min.js');
         $this->addJs('/modules/backend/formwidgets/codeeditor/assets/js/build-min.js', 'core');
 
         if ($lang = $this->getValidEditorLang()) {

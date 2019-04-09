@@ -1,7 +1,6 @@
 description = "Header container"
 
-[staticMenu]
-code = "menu"
+[viewBag]
 ==
 <?php
 function onStart() {
@@ -12,40 +11,38 @@ function onStart() {
 ==
 {% partial 'header/loginModal' %}
 <header>
-    <div class="top_header {{ user ? 'logged' : '' }}">
-        <div class="top_header_first_logo_block">
-            <div class="first_logo"><img src="{{ ('assets/partials/header/header_img_02.png')|media }}"></div>
-            <div><span class="top_header_white_text">Tables: </span><span class="top_header_orange_text"> {{tables}}</span></div>
-            <div><span class="top_header_white_text">Players: </span><span class="top_header_orange_text"> {{players}}</span></div>
-        </div>
-        <div class="mobile-menu-button"><img src="{{ ('assets/menu-button.png')|media }}" alt=""></div>
-        <div class="logo"><a href="/"><img src="{{ ('assets/partials/header/header_img_05.png')|media }}"></a></div>
-        <div class="header_logged_logout_button"><img src="{{ ('assets/partials/header/1_1_3.png')|media }}"></div>
-        <div class="top_header_buttons {{ user ? 'logged' : '' }}">
-            {% if user %}
-                <div class="header_block_17"><span class="header_block_17_white_text">{{ user.username }}</span> <span class="header_block_17_orange_text">Rs. 00000000</span></div>
-                <a class="header_block_18"><span>Buy Chips</span><img src="{{ ('assets/partials/header/1_1_5.png')|media }}"></a>
-                <ul>
-                    <li class="header_block_19 parent_menu_item">
-                        <span>Account</span>
-                        <img src="{{ ('assets/partials/header/1_1_4.png')|media }}">
-                        <ul class="inner_top_menu">
-                            <li><a href="#">My profile</a>
-                            <li><a href="#">Account balance</a>
-                            <li><a href="#">Khelo365 Coins</a>
-                            <li><a href="#">SitNGo Coins</a>
-                            <li class="logged_logout"><a href="#" data-request="onLogout">Logout</a>
-                        </ul>
-                    </li>
-                </ul>
-            {% else %}
-            <div id="loginPopupBtn" class="top_header_login_button"><a href="#">Login</a></div>
-                <div class="top_header_fb_button"><a href="#"><img src="{{ ('assets/partials/header/header_img_08.png')|media }}"></a></div>
-                <div><a href="#"><img src="{{ ('assets/partials/header/header_img_10.png')|media }}"></a></div>
-            {% endif %}
-        </div>
-    </div>
+	<div class="top_header {{ user ? 'logged' : '' }}">
+		<div class="top_header_first_logo_block">
+			<div class="first_logo"><img src="/storage/app/media/assets/partials/header/header_img_02.png" class="fr-fic fr-dii"></div>
+			<div><span class="top_header_white_text">Tables:&nbsp;</span><span class="top_header_orange_text">&nbsp;{{tables}}</span></div>
+			<div><span class="top_header_white_text">Players:&nbsp;</span><span class="top_header_orange_text">&nbsp;{{players}}</span></div>
+		</div>
+		<div class="mobile-menu-button"><img src="/storage/app/media/assets/menu-button.png" alt="" class="fr-fic fr-dii"></div>
+		<div class="logo">
+			<a href="/"><img src="/storage/app/media/assets/partials/header/header_img_05.png" class="fr-fic fr-dii"></a>
+		</div>
+		<div class="top_header_buttons {{ user ? 'logged' : '' }}">{% if user %}
+			<div class="header_block_17"><span class="header_block_17_white_text">{{ user.username }}</span>
+				<span class="header_block_17_orange_text">Rs. 00000000</span></div><a class="header_block_18"><span>Buy Chips</span><img src="/storage/app/media/assets/partials/header/1_1_5.png" class="fr-fic fr-dii"></a>
 
-    {% partial 'header/main-menu' %}
+			<ul>
+				<li class="header_block_19 parent_menu_item"><span>Account</span>
+					<img src="/storage/app/media/assets/partials/header/1_1_4.png" class="fr-fic fr-dii">
 
-</header>
+					<ul class="inner_top_menu">
+						<li><a href="#">My profile</a></li>
+						<li><a href="#">Account balance</a></li>
+						<li><a href="#">Khelo365 Coins</a></li>
+						<li><a href="#">SitNGo Coins</a></li>
+						<li class="logged_logout"><a data-request="onLogout" href="#">Logout</a></li>
+					</ul>
+				</li>
+			</ul>{% else %}
+			<div class="top_header_login_button" id="loginPopupBtn"><a href="#">Login</a></div>
+			<div class="top_header_fb_button">
+				<a href="#"><img src="/storage/app/media/assets/partials/header/header_img_08.png" class="fr-fic fr-dii"></a>
+			</div>
+			<div>
+				<a href="#"><img src="/storage/app/media/assets/partials/header/header_img_10.png" class="fr-fic fr-dii"></a>
+			</div>{% endif %}</div>
+	</div>{% partial 'header/main-menu' %}</header>
