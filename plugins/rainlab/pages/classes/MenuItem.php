@@ -161,6 +161,16 @@ class MenuItem
         return []; // References are loaded client-side
     }
 
+    public function getShowToUserGroupOptions()
+    {
+        return [
+            'all' => 'All',
+            'user' => 'Authenticated',
+            'guest' => 'Guests',
+            'none' => 'None'
+        ];
+    }
+
     public static function getTypeInfo($type)
     {
         $result = [];
