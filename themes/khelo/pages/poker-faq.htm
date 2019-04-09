@@ -27,6 +27,12 @@ notFoundMessage = "Record not found"
 paramCode = "code"
 forceSecure = 0
 ==
+<?php
+function onStart() {
+$this->page['currentItem'] = explode('/', $this->currentPageUrl())[4];
+}
+?>
+==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
 {% set noRecordsMessage = builderList.noRecordsMessage %}
@@ -35,14 +41,15 @@ forceSecure = 0
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 {% set firstRecord = '' %}
 
-<div class="faq-wrapper" style="display: flex;">
-    <div class="faq-list" style="width: 30%;">
-        <ul class="record-list">
+<div class="faq-wrapper">
+    <h1>FAQ</h1>
+    <div class="faq-list">
+        <ul class="list-group">
             {% for record in records if record.published == 1 %}
                 {% if loop.index == 1 %}
                     {% set firstRecord = record %}
                 {% endif %}
-                <li>
+                <li class="list-group-item {{ this.page.currentItem == record.slug ? 'active' : '' }}">
                     {# Use spaceless tag to remove spaces inside the A tag. #}
                     {% spaceless %}
                     {% if detailsPage %}
@@ -82,7 +89,7 @@ forceSecure = 0
     {% set displayColumn = builderDetails.displayColumn %}
     {% set notFoundMessage = builderDetails.notFoundMessage %}
 
-    <div class="faq-single" style="width: 70%;">
+    <div class="faq-single">
         {% if record %}
             {% component 'showSingle' record=record %}
         {% else %}

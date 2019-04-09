@@ -1,0 +1,63 @@
+@import "../theme/variables";
+
+.faq-wrapper {
+  &:extend(.default-container-width);
+  display: flex;
+  flex-wrap: wrap;
+  background-color: @body-bg-color-dark-grey;
+  padding: 30px 30px;
+
+  & > h1 {
+    width: 100%;
+    color: @theme-font-color-gold;
+    font-weight: 400;
+  }
+
+  .faq-list {
+    width: 30%;
+    ul li {
+      background-color: #222325;
+      border: none;
+      color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      a {
+        color: #fff;
+      }
+      &.active {
+        &:extend(.green-gradient);
+        -webkit-clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
+        a {
+          color: @theme-font-color-gold;
+        }
+
+      }
+    }
+  }
+
+  .faq-single {
+    padding: 0 35px;
+    width: 70%;
+    p {
+      line-height: 30px;
+    }
+    & > p:nth-child(odd) {
+      color: @theme-font-color-gold;
+      font-size: 20px;
+      span.q {
+        font-weight: 600;
+      }
+    }
+    & > p:nth-child(even) {
+      color: #fff;
+      font-size: 18px;
+      span.a {
+        font-weight: 600;
+      }
+    }
+  }
+
+
+
+}
