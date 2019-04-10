@@ -15,23 +15,25 @@
 
   .faq-list {
     width: 30%;
-    ul li {
-      background-color: #222325;
-      border: none;
-      color: #fff;
-      padding: 20px;
-      font-size: 18px;
+    ul {
       a {
         color: #fff;
-      }
-      &.active {
-        &:extend(.green-gradient);
-        -webkit-clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
-        clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
-        a {
+        text-decoration: none;
+        & li.active {
           color: @theme-font-color-gold;
         }
-
+        li {
+          background-color: #222325;
+          border: none;
+          color: #fff;
+          padding: 20px;
+          font-size: 18px;
+          &.active {
+            &:extend(.green-gradient);
+            -webkit-clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
+            clip-path: polygon(100% 0%, 96% 50%, 100% 100%, 0 100%, 0 0);
+          }
+        }
       }
     }
   }
