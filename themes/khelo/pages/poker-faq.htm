@@ -29,7 +29,10 @@ forceSecure = 0
 ==
 <?php
 function onStart() {
-$this->page['currentItem'] = explode('/', $this->currentPageUrl())[4];
+    $this->page['currentItem'] = (function(){
+        $urlParts = explode('/', $this->currentPageUrl());
+        return (count($urlParts) == 5) ? $urlParts[4] : ((count($urlParts) == 4) ? 'none' : null);
+    })();
 }
 ?>
 ==
@@ -49,7 +52,19 @@ $this->page['currentItem'] = explode('/', $this->currentPageUrl())[4];
                 {% if loop.index == 1 %}
                     {% set firstRecord = record %}
                 {% endif %}
-                <li class="list-group-item {{ this.page.currentItem == record.slug ? 'active' : '' }}">
+                {% if this.page.currentItem == record.slug %}
+                    {% set activeClass = 'active' %}
+                {% else %}
+                    {% set activeClass = '' %}
+                {% endif %}
+                {% if this.page.currentItem == 'none' %}
+                    {% if loop.index == 1 %}
+                        {% set activeClass = 'active' %}
+                    {% else %}
+                        {% set activeClass = '' %}
+                    {% endif %}
+                {% endif %}
+                <li class="list-group-item {{ activeClass }}">
                     {# Use spaceless tag to remove spaces inside the A tag. #}
                     {% spaceless %}
                     {% if detailsPage %}
