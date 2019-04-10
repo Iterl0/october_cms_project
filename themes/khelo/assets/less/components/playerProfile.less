@@ -1,0 +1,97 @@
+@import "../theme/variables";
+@import "../controls/tabs";
+
+#mainWrapper {
+  &:extend(.default-container-width);
+  margin: 0 auto;
+  display: flex;
+  & > div:first-child {
+    width: 25%;
+  }
+  & > div:last-child {
+    width: 75%;
+  }
+}
+
+
+#playerProfile {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  input {
+    display: none;
+    height: 2.5em;
+    visibility: hidden;
+    &:hover + label {}
+    &:checked + label {
+      &:extend(.tab-active);
+      color: #444;
+      position: relative;
+      z-index: 6;
+    }
+  }
+  label {
+    &:extend(.tab-idle);
+    border: none;
+    width: 50%;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    height: 2.5em;
+    line-height: 2.5em;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+#content {
+  background: @body-bg-color-dark-grey;
+  border-radius: 0 .25em .25em .25em;
+  min-height: 20em;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+  div {
+    opacity: 0;
+    padding: 1.5em;
+    position: absolute;
+    z-index: -100;
+    /*
+    transition: all linear 0.1s;
+    */
+  }
+}
+
+#content-1 p {
+  clear: both;
+  margin-bottom: 1em;
+}
+#content-1 p.left img {
+  float: left;
+  margin-right: 1em;
+}
+#content-1 p.last {
+  margin-bottom: 0;
+}
+
+#content-2 p {
+  float: left;
+  width: 48.5%;
+}
+#content-2 p.column-right {
+  margin-left: 3%;
+}
+#content-2 p img {
+  display: block;
+  margin: 0 auto 1em auto;
+}
+
+#playerProfile input#tab-1:checked ~ #content #content-1,
+#playerProfile input#tab-2:checked ~ #content #content-2 {
+  opacity: 1;
+  z-index: 100;
+}
+
+input.visible {
+  visibility: visible !important;
+}
