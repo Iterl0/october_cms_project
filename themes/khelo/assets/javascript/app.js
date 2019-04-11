@@ -24,23 +24,24 @@ $(document).ready(function () {
     });
 
 
+    var slider = $('.section_5_sider');
+    if (slider.length) {
+        slider.slick({
+            dots: true,
+            infinite: true,
+            autoplay: false,
+            speed: 300,
+            fade: true,
+            prevArrow: '.section_5_slider_prevArrow',
+            nextArrow: '.section_5_slider_nextArrow',
+            cssEase: 'linear'
+        });
 
-    $('.section_5_sider').slick({
-        dots: true,
-        infinite: true,
-        autoplay: false,
-        speed: 300,
-        fade: true,
-        prevArrow: '.section_5_slider_prevArrow',
-        nextArrow: '.section_5_slider_nextArrow',
-        cssEase: 'linear'
-    });
-
-    $('.section_5_sider').on('afterChange', function (event, slick, direction) {
-
-        var currentSlide = $('.section_5_sider').slick('slickCurrentSlide');
-        $('.section_5_sider_curent_slide').text(currentSlide + 1);
-    });
+        slider.on('afterChange', function (event, slick, direction) {
+            var currentSlide = $('.section_5_sider').slick('slickCurrentSlide');
+            $('.section_5_sider_curent_slide').text(currentSlide + 1);
+        });
+    }
 
     $('.section_1_top_left_slider_container').on('afterChange', function (event, slick, direction) {
 
@@ -49,27 +50,22 @@ $(document).ready(function () {
     });
 
 
+    var bottomLeftSlider = $('.section_1_bottom_left_bottom_slider_container');
+    var bottomRightSlider = $('.section_1_bottom_right_slider_container');
 
-    $('.section_1_bottom_left_bottom_slider_container').slick({
-        dots: true,
-        infinite: true,
-        autoplay: false,
-        speed: 300,
-        fade: true,
-        prevArrow: '.section_1_bottom_left_bottom_slider_prevArrow',
-        nextArrow: '.section_1_bottom_left_bottom_slider_nextArrow',
-        cssEase: 'linear'
-    });
-
-    $('.section_1_bottom_right_slider_container').slick({
-        dots: true,
-        infinite: true,
-        autoplay: false,
-        speed: 300,
-        fade: true,
-        prevArrow: '.section_1_bottom_right_slider_prevArrow',
-        nextArrow: '.section_1_bottom_right_slider_nextArrow',
-        cssEase: 'linear'
+    [bottomLeftSlider, bottomRightSlider].forEach(function () {
+        if (this.lenght) {
+            this.slick({
+                dots: true,
+                infinite: true,
+                autoplay: false,
+                speed: 300,
+                fade: true,
+                prevArrow: '.section_1_bottom_left_bottom_slider_prevArrow',
+                nextArrow: '.section_1_bottom_left_bottom_slider_nextArrow',
+                cssEase: 'linear'
+            });
+        }
     });
 
     $('#signUpForm input:checkbox:not(:checked)').click(function () {

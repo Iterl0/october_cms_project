@@ -9,7 +9,9 @@ function onStart() {
 }
 ?>
 ==
-{% partial 'header/loginModal' %}
+{% if not user %}
+	{% partial 'header/loginModal' %}
+{% endif %}
 <header>
 	<div class="top_header {{ user ? 'logged' : '' }}">
 		<div class="top_header_first_logo_block">
