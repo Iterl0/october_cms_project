@@ -18,6 +18,15 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
+  button {
+    border: none;
+  }
+  .page-title {
+    color: @theme-font-color-gold;
+    font-weight: 400;
+    text-transform: uppercase;
+    width: 100%;
+  }
 }
 
 main {
@@ -187,6 +196,7 @@ header {
     flex-wrap: wrap;
     justify-content: flex-start;
     display: none;
+    z-index: 100;
   }
   ul.inner_top_menu li {
     width: auto;
