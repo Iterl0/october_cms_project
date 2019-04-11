@@ -1,16 +1,15 @@
 @import "../theme/variables";
 @import "../controls/tabs";
+@import "../controls/buttons";
 
 #mainWrapper {
   &:extend(.default-container-width);
   margin: 0 auto;
   display: flex;
-  & > div:first-child {
-    width: 25%;
-  }
-  & > div:last-child {
-    width: 75%;
-  }
+  flex-wrap: wrap;
+  background-color: @body-bg-color-dark-grey;
+  padding: 25px;
+  margin-bottom: 30px;
 }
 
 
@@ -18,28 +17,31 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  width: 60%;
+  color: #fff;
+  justify-content: space-between;
   input {
     display: none;
     height: 2.5em;
     visibility: hidden;
     &:hover + label {}
     &:checked + label {
-      &:extend(.tab-active);
-      color: #444;
+      &:extend(.tab-green);
+      color: @theme-font-color-gold;
       position: relative;
-      z-index: 6;
     }
   }
   label {
-    &:extend(.tab-idle);
-    border: none;
-    width: 50%;
+    &:extend(.tab-transparent);
+    text-transform: none !important;
+    width: 49%;
     cursor: pointer;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1em;
-    height: 2.5em;
+    height: 4.5em;
     line-height: 2.5em;
-    text-align: center;
     margin: 0;
   }
 }
@@ -51,45 +53,68 @@
   position: relative;
   width: 100%;
   z-index: 5;
-  div {
+  & > div {
     opacity: 0;
-    padding: 1.5em;
-    position: absolute;
+    padding: 1.5em 0;
     z-index: -100;
-    /*
-    transition: all linear 0.1s;
-    */
+    width: 100%;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      ul {
+        display: flex;
+        padding-bottom: 30px;
+        align-items: center;
+        li {
+          width: 50%;
+          button {
+            font-size: 11px;
+            padding: 12px;
+          }
+        }
+      }
+    }
+  }
+  .head {
+    color: @theme-font-color-gold;
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    p {
+      font-size: 20px;
+      line-height: 18px;
+      margin-bottom: 0;
+      white-space: nowrap;
+    }
+    hr {
+      width: 100%;
+      margin: 15px 0 20px 7px;
+      border-color: @theme-font-color-gold;
+    }
+    button {
+      width: 120px;
+      height: 33px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      img {
+        height: 18px;
+      }
+    }
   }
 }
 
-#content-1 p {
-  clear: both;
-  margin-bottom: 1em;
-}
-#content-1 p.left img {
-  float: left;
-  margin-right: 1em;
-}
-#content-1 p.last {
-  margin-bottom: 0;
-}
 
-#content-2 p {
-  float: left;
-  width: 48.5%;
-}
-#content-2 p.column-right {
-  margin-left: 3%;
-}
-#content-2 p img {
-  display: block;
-  margin: 0 auto 1em auto;
-}
-
-#playerProfile input#tab-1:checked ~ #content #content-1,
-#playerProfile input#tab-2:checked ~ #content #content-2 {
+#playerProfile input#tab-1:checked ~ #content #personal,
+#playerProfile input#tab-2:checked ~ #content #banking {
   opacity: 1;
   z-index: 100;
+}
+
+#playerProfile input#tab-2:checked ~ #content #personal,
+#playerProfile input#tab-1:checked ~ #content #banking {
+  display: none;
 }
 
 input.visible {
