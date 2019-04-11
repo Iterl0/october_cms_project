@@ -4,6 +4,11 @@
 
 $(document).ready(function () {
 
+    viewport = {
+        w: window.innerWidth,
+        h: window.innerHeight
+    };
+
     $('#section_4_tab_button_1').click(function () {
         $('.tab_button').removeClass('active_tab');
         $('.tab_content').removeClass('active_tab_content');
@@ -75,5 +80,16 @@ $(document).ready(function () {
     $('#signUpForm input:checkbox:checked').click(function () {
         $(this).prop('checked', false);
     })
+
+    $('.mobile-menu-button').click(function(){
+        $('.bottom_header').slideToggle(300);
+    });
+
+    if (viewport.w < 768) {
+        $('.bottom_header ul li.parent_menu_item').on('touchstart', function () {
+            var innerMenu = $(this).find('ul.inner_top_menu');
+            innerMenu.is(':visible') ? innerMenu.hide() : innerMenu.css('display', 'flex');
+        })
+    }
 
 });
