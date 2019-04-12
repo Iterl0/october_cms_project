@@ -81,7 +81,12 @@ class SignUpForm extends Account
             $requireActivation = UserSettings::get('require_activation', true);
             $automaticActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_AUTO;
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
-            $user = Auth::register($data, $automaticActivation);
+            $user = Auth::register((function () use ($data) {
+                $dataTruncated = $data;
+                unset($dataTruncated['password']);
+                unset($dataTruncated['password_confirmation']);
+                return $dataTruncated;
+            })(), $automaticActivation);
 
 
 

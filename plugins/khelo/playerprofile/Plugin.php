@@ -46,6 +46,12 @@ class Plugin extends PluginBase
             $model->addFillable([
                 'mobile_number'
             ]);
+
+            $model->rules = [
+                'email' => 'required|between:6,255|email|unique:users',
+                'avatar' => 'nullable|image|max:4000',
+                'username' => 'required|between:2,255|unique:users',
+            ];
         });
 
         UsersController::extendFormFields(function ($form, $model, $context) {
