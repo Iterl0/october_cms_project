@@ -10,6 +10,12 @@
   background-color: @body-bg-color-dark-grey;
   padding: 25px;
   margin-bottom: 30px;
+  h1 {
+    @media @mobile {
+      font-size: 25px;
+      margin-bottom: 1em;
+    }
+  }
 }
 
 
@@ -20,6 +26,9 @@
   width: 60%;
   color: #fff;
   justify-content: space-between;
+  @media @mobile {
+    width: 100%;
+  }
   input {
     display: none;
     height: 2.5em;
@@ -52,7 +61,6 @@
   min-height: 20em;
   position: relative;
   width: 100%;
-  z-index: 5;
   & > div {
     opacity: 0;
     padding: 1.5em 0;
@@ -65,8 +73,30 @@
         display: flex;
         padding-bottom: 30px;
         align-items: center;
+        @media @mobile {
+          flex-wrap: wrap;
+        }
         li {
           width: 50%;
+          &:last-child {
+            @media @tablet {
+              &:before {
+                content: ': ';
+              }
+            }
+            @media @mobile {
+              margin-top: 1em;
+            }
+          }
+          @media @mobile {
+            &:first-child {
+              font-weight: 600;
+              &:after {
+                content: ':';
+              }
+            }
+            width: 100%;
+          }
           button {
             font-size: 11px;
             padding: 12px;
@@ -85,6 +115,9 @@
       line-height: 18px;
       margin-bottom: 0;
       white-space: nowrap;
+      @media @mobile {
+        font-size: 15px;
+      }
     }
     hr {
       width: 100%;
