@@ -2,8 +2,11 @@ title = "My Profile"
 url = "/profile"
 layout = "default"
 is_hidden = 0
-==
 
+[session]
+security = "user"
+redirect = "login"
+==
 {% put styles %}
 <style>
     body {
