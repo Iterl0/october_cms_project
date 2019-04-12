@@ -25,6 +25,8 @@ class Plugin extends PluginBase
         ];
     }
 
+    public $require = ['RainLab.User'];
+
     /**
      * Register method, called when the plugin is first registered.
      *
