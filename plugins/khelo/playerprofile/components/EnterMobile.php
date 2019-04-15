@@ -1,8 +1,8 @@
 <?php namespace Khelo\Playerprofile\Components;
 
 use Illuminate\Support\Facades\Redirect;
+use Khelo\Playerprofile\Traits\Helpers;
 use RainLab\User\Components\Account;
-use RainLab\User\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Session;
 use Validator;
@@ -14,6 +14,8 @@ use Flash;
 
 class EnterMobile extends Account
 {
+    use Helpers;
+
     public function componentDetails()
     {
         return [
@@ -60,11 +62,6 @@ class EnterMobile extends Account
         $this->page['phoneNumberLength'] = $this->getPhoneNumberLength();
     }
 
-    public function getPhoneNumberLength() {
-        $callCodePrefix = $this->property('intCallCodePrefix');
-        return ($callCodePrefix == 'None' || $callCodePrefix == '') ? 12 : 10;
-    }
-
     public function onMobileSubmit()
     {
         try {
@@ -93,7 +90,11 @@ class EnterMobile extends Account
 
             $userActivation = UserSettings::get('activate_mode') == UserSettings::ACTIVATE_USER;
 
-            if ($userActivation) $this->sendActivationSms($user);
+            $user->activation_code = $activation_code = mt_rand(100000, 999999);
+            $user->forceSave();
+            $link = $this->makeActivationUrl($activation_code);
+
+            if ($userActivation) $this->sendActivationSms($user, $activation_code);
             Flash::success('Sms sent');
 
             Session::put('activeGateway', $this->property('smsGateway'));
@@ -111,31 +112,6 @@ class EnterMobile extends Account
             if (Request::ajax()) throw $ex;
             else Flash::error($ex->getMessage());
         }
-    }
-
-    /**
-     * Sends the activation sms to a user
-     * @param  User $user
-     * @return void
-     */
-    protected function sendActivationSms($user)
-    {
-        $user->activation_code = $activation_code = mt_rand(100000, 999999);
-
-        $user->forceSave();
-
-        $link = $this->makeActivationUrl($activation_code);
-
-        $smsSender= $this->addComponent(
-            '\Khelo\SmsGateway\Components\SendSmsService', 'sendSmsService',
-            [
-                'activeGateway' => $this->property('smsGateway'),
-                'callCodePrefix' => $this->property('intCallCodePrefix')
-            ]
-        );
-
-        $smsSender->sendMessage($user->mobile_number, $activation_code);
-
     }
 
     /**

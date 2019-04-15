@@ -49,6 +49,10 @@ class Plugin extends PluginBase
                 'mobile_number'
             ]);
 
+            $model->addDynamicMethod('findByMobile', function($mobile) use ($model) {
+                return $model->where('mobile_number', $mobile);
+            });
+
             $model->rules = [
                 'email' => 'required|between:6,255|email|unique:users',
                 'avatar' => 'nullable|image|max:4000',
@@ -78,6 +82,7 @@ class Plugin extends PluginBase
             \Khelo\PlayerProfile\Components\SignUpForm::class => 'signUpForm',
             \Khelo\PlayerProfile\Components\EnterMobile::class => 'enterMobile',
             \Khelo\PlayerProfile\Components\VerifyMobile::class => 'verifyMobile',
+            \Khelo\PlayerProfile\Components\ResetPassword::class => 'resetPassword',
         ];
     }
 
