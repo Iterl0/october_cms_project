@@ -212,7 +212,7 @@ class Account extends ComponentBase
             }
 
             Event::fire('rainlab.user.beforeAuthenticate', [$this, $credentials]);
-            $user = Auth::authenticate($credentials, true);
+            Auth::login($user);
             Session::put('player_info', serialize($player));
 
             if ($user->isBanned()) {
