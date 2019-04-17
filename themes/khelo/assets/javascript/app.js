@@ -58,9 +58,9 @@ $(document).ready(function () {
     var bottomLeftSlider = $('.section_1_bottom_left_bottom_slider_container');
     var bottomRightSlider = $('.section_1_bottom_right_slider_container');
 
-    [bottomLeftSlider, bottomRightSlider].forEach(function () {
-        if (this.lenght) {
-            this.slick({
+    [bottomLeftSlider, bottomRightSlider].forEach(function (el) {
+        if (el.length) {
+            el.slick({
                 dots: true,
                 infinite: true,
                 autoplay: false,
