@@ -1,11 +1,13 @@
 title = "My Profile"
-url = "/profile"
+url = "/profile/:edit?"
 layout = "default"
 is_hidden = 0
 
 [session]
 security = "user"
 redirect = "login"
+
+[editProfile]
 ==
 {% put styles %}
 <style>
@@ -16,9 +18,11 @@ redirect = "login"
         padding-bottom: 0;
     }
 </style>
-
 {% endput %}
-
+{% component 'editProfile' %}
+{% if this.param.edit == 'edit' %}
+    {% set edit = true %}
+{% endif %}
 <div id="mainWrapper">
     <h1 class="page-title">My profile</h1>
     <div id="playerProfile">
@@ -31,109 +35,194 @@ redirect = "login"
                 <div class="head">
                     <p>Validation Information</p><hr>
                 </div>
+                {% if edit %}
+                    {{ form_open({ request: 'onUpdateProfileDetails'}) }}
+                {% endif %}
                 <ul>
                     <li>
                         <ul>
-                            <li>Email Address</li>
-                            <li>vicky@gmail.com</li>
+                            <li><label for="accountEmail">Email</label></li>
+                            <li>{% if edit %}<input name="email" type="email" id="accountEmail" value="{{ user.email }}">{% else %}{{ user.email }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Mobile no</li>
-                            <li>Verified promotional sms: yes change</li>
+                            <li><label for="mobile">Mobile no</label></li>
+                            <li>{% if edit %}<input name="mobile_number" type="text" id="mobile" value="{{ user.mobile_number }}">{% else %}{{ user.mobile_number }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
                             <li>Password</li>
-                            <li><button class="tab-gold">Change password</button></li>
+                            <li><a href="{{ 'forgot-password'|page }}"><button class="tab-gold">Change password</button></a></li>
                         </ul>
                     </li>
                 </ul>
                 <div class="head">
-                    <p>Personal Information</p><hr style="margin-right: 20px;"><button class="btn-dark"><img src="/storage/app/media/assets/pencil.svg" alt="">&nbsp;Edit</button>
+                    <p>Personal Information</p><hr style="margin-right: 20px;">{% if not edit %}<button class="btn-dark editProfile"><img src="/storage/app/media/assets/pencil.svg" alt="">&nbsp;Edit</button>{% endif %}
                 </div>
                 <ul>
                     <li>
                         <ul>
-                            <li>First name</li>
-                            <li>vicky@gmail.com</li>
+                            <li><label for="firstName">First name</label></li>
+                            <li>{% if edit %}<input name="name" type="text" id="firstName" value="{{ user.name }}">{% else %}{{ user.name }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Last name</li>
-                            <li>Player</li>
+                            <li><label for="lastName">Last name</label></li>
+                            <li>{% if edit %}<input name="surname" type="text" id="lastName" value="{{ user.surname }}">{% else %}{{ user.surname }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Date of birth</li>
-                            <li>0000-00-00</li>
+                            <li><label for="birthDate">Date of birth</label></li>
+                            <li>{% if edit %}<input name="birth_date" type="text" id="birthDate" value="{{ user.birth_date }}">{% else %}{{ user.birth_date }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Gender</li>
-                            <li>Male</li>
+                            <li><label for="gender">Gender</label></li>
+                            <li>{% if edit %}
+                                <select name="gender" id="gender" class="form-control custom-select select-no-search">
+                                    <option value="m" {{ maleSelected }}>Male</option>
+                                    <option value="f" {{ femaleSelected }}>Female</option>
+                                </select>
+                                {% else %}{{ user.gender }}{% endif %}</li>
                         </ul>
                     </li>
                 </ul>
+                <div class="head">
+                    <p>Address Information</p><hr style="margin-right: 20px;">
+                </div>
+                <ul>
+                    <li>
+                        <ul>
+                            <li><label for="address1">Address 1</label></li>
+                            <li>{% if edit %}<input name="address1" type="text" id="address1" value="{{ user.address1 }}">{% else %}{{ user.address1 }}{% endif %}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><label for="address2">Address 2</label></li>
+                            <li>{% if edit %}<input name="address2" type="text" id="address2" value="{{ user.address2 }}">{% else %}{{ user.address2 }}{% endif %}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><label for="city">City</label></li>
+                            <li>{% if edit %}<input name="city" type="text" id="city" value="{{ user.city }}">{% else %}{{ user.city }}{% endif %}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><label for="state">State</label></li>
+                            <li>{% if edit %}<input name="state" type="text" id="state" value="{{ user.state }}">{% else %}{{ user.state }}{% endif %}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><label for="pin">Pin</label></li>
+                            <li>{% if edit %}<input name="pin" type="text" id="pin" value="{{ user.pin }}">{% else %}{{ user.pin }}{% endif %}</li>
+                        </ul>
+                    </li>
+                </ul>
+                {% if edit %}
+                    <button type="submit" class="tab-gold">Save</button>
+                    {{ form_close() }}
+                {% endif %}
             </div>
             <div id="banking">
                 <div class="head">
-                    <p>Banking Information</p><hr><div class="line"></div>
+                    <p>Banking Information</p><hr style="margin-right: 20px;">{% if not edit %}<button class="btn-dark editProfile"><img src="/storage/app/media/assets/pencil.svg" alt="">&nbsp;Edit</button>{% endif %}
                 </div>
+                {% if edit %}
+                    {{ form_open({ request: 'onUpdateBankingDetails', files: true }) }}
+                {% endif %}
                 <ul>
                     <li>
                         <ul>
-                            <li>Full Name</li>
-                            <li>lorem</li>
+                            <li><label for="full_name">Full Name</label></li>
+                            <li>{% if edit %}<input name="full_name" type="text" id="full_name" value="{{ user.bankingInfo.full_name }}">{% else %}{{ user.bankingInfo.full_name }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Account No</li>
-                            <li>lorem</li>
+                            <li><label for="account_no">Account No</label></li>
+                            <li>{% if edit %}<input name="account_no" type="text" id="account_no" value="{{ user.bankingInfo.account_no }}">{% else %}{{ user.bankingInfo.account_no }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>IFSC</li>
-                            <li>lorem</li>
+                            <li><label for="ifsc">IFSC</label></li>
+                            <li>{% if edit %}<input name="ifsc" type="text" id="ifsc" value="{{ user.bankingInfo.ifsc }}">{% else %}{{ user.bankingInfo.ifsc }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>PAN Number</li>
-                            <li>lorem</li>
+                            <li><label for="pan">PAN Number</label></li>
+                            <li>{% if edit %}<input name="pan" type="text" id="pan" value="{{ user.bankingInfo.pan }}">{% else %}{{ user.bankingInfo.pan }}{% endif %}</li>
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>PAN Card scan</li>
-                            <li>lorem</li>
+                            <li><label for="pan">PAN Card scan</label></li>
+                            {% if edit %}
+                                <li>{{ user.panScan ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : '' }}<input {% if user.panScan != "" %}style="display: none"{% endif %} name="panScan" type="file"></li>
+                            {% else %}
+                                <li>{{ user.panScan ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : 'None' }}</li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Address Proof Front</li>
-                            <li>lorem</li>
+                            <li><label for="pan">Address Proof Front</label></li>
+                            {% if edit %}
+                            <li>{{ user.addressProofFront ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : '' }}<input {% if user.addressProofFront != "" %}style="display: none"{% endif %} name="addressProofFront" type="file"></li>
+                            {% else %}
+                            <li>{{ user.addressProofFront ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : 'None' }}</li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li>
                         <ul>
-                            <li>Address Proof Back</li>
-                            <li>lorem</li>
+                            <li><label for="pan">Address Proof Back</label></li>
+                            {% if edit %}
+                                <li>{{ user.addressProofBack ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : '' }}<input {% if user.addressProofBack != "" %}style="display: none"{% endif %} name="addressProofBack" type="file"></li>
+                            {% else %}
+                                <li>{{ user.addressProofBack ? '<i class="icon-check green"></i><span class="green">Confirmed</span>&nbsp;<a class="change">Change</a>' : 'None' }}</li>
+                            {% endif %}
                         </ul>
                     </li>
                     <li style="color: red;">
                         <span style="color: green;">*Proof:</span> Any govt authorized ID | Telangana,Assam,Gujarat & Odisha players are barred to upload
                     </li>
                 </ul>
+                {% if edit %}
+                    <button type="submit" class="tab-gold">Save</button>
+                    {{ form_close() }}
+                {% endif %}
             </div>
         </div>
     </div>
 </div>
 {% partial 'specialOffers' %}
+
+{% put scripts %}
+<script>
+    $( function() {
+        $("#birthDate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            yearRange: "-60:-18",
+            defaultDate: '-18y',
+            maxDate: '-18y',
+            changeYear: true,
+        });
+        $('.editProfile').click(function () {
+            var url = window.location.href;
+            url += '/edit';
+            window.location.href = url;
+        });
+    } );
+</script>
+{% endput %}

@@ -92,4 +92,8 @@ $(document).ready(function () {
         })
     }
 
+    $('a.change').click(function () {
+        $(this).hide().prev('i, span').hide().siblings('input[type="file"]').show();
+    });
+
 });

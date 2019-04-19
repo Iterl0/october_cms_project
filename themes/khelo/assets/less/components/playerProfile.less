@@ -29,7 +29,14 @@
   @media @mobile {
     width: 100%;
   }
-  input {
+  input:not([type="file"]), select {
+    background-color: @body-bg-color-dark-grey;
+    border: 1px solid @main-body-text-color;
+    padding: 5px;
+    color: inherit;
+    border-radius: inherit;
+  }
+  & > input {
     display: none;
     height: 2.5em;
     visibility: hidden;
@@ -40,8 +47,9 @@
       position: relative;
     }
   }
-  label {
+  & > label {
     &:extend(.tab-transparent);
+    font-weight: normal !important;
     text-transform: none !important;
     width: 49%;
     cursor: pointer;
@@ -78,10 +86,13 @@
         }
         li {
           width: 50%;
+          display: flex;
+          align-items: center;
           &:last-child {
             @media @tablet {
               &:before {
                 content: ': ';
+                transform: translateX(-100%);
               }
             }
             @media @mobile {
@@ -100,6 +111,15 @@
           button {
             font-size: 11px;
             padding: 12px;
+          }
+          select {
+            display: inline-flex;
+          }
+          input, select {
+            width: 90%;
+          }
+          i {
+            margin-right: 10px;
           }
         }
       }
