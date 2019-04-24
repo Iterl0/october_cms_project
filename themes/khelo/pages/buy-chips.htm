@@ -1,0 +1,95 @@
+title = "Buy Chips"
+url = "/buy-chips"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "khelo\Promotions\Models\Promotion"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "promocode"
+noRecordsMessage = "No promotions found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<?php
+function onStart() {}
+?>
+==
+<div id="buyChipsWrapper">
+    {{ form_open({ request: 'onBuyChips' }) }}
+        <h1 class="page-title">{{ this.page.title }}</h1>
+        <section id="amount">
+            <input name="amount" type="number" value="10000">
+            <div>
+                <button>&#8377;100</button>
+                <button>&#8377;500</button>
+                <button>&#8377;1000</button>
+                <button>&#8377;5000</button>
+            </div>
+            <p>Min Rs.100 to Max Rs. 50000</p>
+        </section>
+        <section class="bonuses">
+            <div>
+                <ul class="bonusList">
+                    {% set promos = builderList.records %}
+                    {% set noRecordsMessage = builderList.noRecordsMessage %}
+                    {% for promo in promos %}
+                        {% if loop.index == 6 %}
+                        {% set hidden = 'hidden opacity-0' %}
+                        {% endif %}
+                            <li class="bonusItem {{ hidden }}">
+                                <div class="previewImg" style="background-image: url({{ (promo.banner_image)|media }})"></div>
+                                <div class="title tab-green">{{ promo.promocode }}</div>
+                                <div class="desc">{{ str_limit(promo.description, 40) }}</div>
+                            </li>
+                    {% else %}
+                        <li class="no-data">{{ noRecordsMessage }}</li>
+                    {% endfor %}
+                </ul>
+                {% if item.items|length > 5 %}
+                    <div class="loadMore">
+                        <p>Load More</p>
+                        <img src="/storage/app/media/assets/arrowLoad.png" alt="">
+                    </div>
+                {% endif %}
+                <div class="bonusCodeField">
+                    <input readonly type="num" name="code" placeholder="bonus code">
+                    <button id="applyPromocode" class="tab-gold">Apply</button>
+                    <p id="bonus_success_msg">Coupon applied successfully + Entry to "Hades" Daily LeaderBoard</p>
+                    <p id="bonus_fail_msg">Coupon failed</p>
+                </div>
+            </div>
+        </section>
+        <section class="payment-gateways">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+    {{ form_close() }}
+</div>
+
+{% put scripts %}
+<script>
+    $( function() {
+        $('.bonusItem').click(function () {
+            // todo validate this field on backend
+            $('input[name="code"]').val($(this).find('.title').text()).focus();
+        });
+
+        $('#applyPromocode').click(function () {
+            var msgDivs = $('#bonus_success_msg, #bonus_fail_msg');
+            msgDivs.empty();
+            var promocode = $('input[name="code"]');
+            if (promocode.val() == '') return;
+            var amount = $('input[name="amount"]')
+
+
+
+        })
+    } );
+
+</script>
+{% endput %}

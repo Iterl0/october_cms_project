@@ -1,0 +1,117 @@
+@import "../theme/variables";
+
+#buyChipsWrapper {
+  &:extend(.pageWrapper);
+
+  & > form {
+    width: 100%;
+    input {
+      display: block;
+      background: transparent;
+      margin: 0 auto;
+      font-size: 35px;
+      border: 0;
+      border-bottom: 1px solid #fff;
+      color: white;
+      &[name="amount"] {
+        background: url(../../../../../storage/app/media/assets/Indian_Rupee_symbol.svg);
+        background-repeat:no-repeat;
+        background-size: 5%;
+        background-position: 3px;
+        padding-left: 40px;
+      }
+      & + div {
+        margin: 30px 1%;
+        width: 98%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        button {
+          width: 70px;
+          padding: 10px 0;
+          background-color: transparent;
+          font-size: 16px;
+          font-weight: bold;
+          color: #fff;
+          border: 1px solid @main-body-text-color;
+          &:not(:last-child) {
+            margin-right: 1%;
+          }
+        }
+        & + p {
+          color: @theme-font-color-gold;
+          text-align: center;
+        }
+      }
+    }
+
+    .bonuses {
+      & > div {
+        background-color: #414249;
+      }
+       .bonusList {
+        padding: 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .bonusItem {
+          display: block;
+          width: 16%;
+          margin-top: 20px;
+          background-color: @body-bg-color-dark-grey;
+          &:not(:nth-child(5n)) {
+            margin-right: 1%;
+          }
+          .previewImg {
+            height: 120px;
+            background-size: cover;
+          }
+          .title {
+            text-align: center;
+            padding: 14px 0;
+          }
+          .desc {
+            text-align: center;
+            color: #fff;
+            padding: 12px;
+          }
+        }
+      }
+      .loadMore {
+        p {
+          text-align: center;
+        }
+        img {
+          margin: 0 auto;
+          display: block;
+          width: 50px;
+        }
+        padding-bottom: 25px;
+      }
+      .bonusCodeField {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 30px;
+        background-color: #4d4e57;
+        input {
+          margin: 0 10px;
+          padding: 0;
+          width: 40%;
+          text-transform: uppercase;
+          font-size: 24px;
+          &::placeholder {
+            opacity: 1;
+            color: #fff;
+          }
+        }
+        #msg {
+          margin-top: 15px;
+          color: @theme-font-color-gold;
+          text-align: center;
+        }
+      }
+    }
+
+  }
+}

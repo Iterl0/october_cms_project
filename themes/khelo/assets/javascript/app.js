@@ -96,4 +96,23 @@ $(document).ready(function () {
         $(this).hide().prev('i, span').hide().siblings('input[type="file"]').show();
     });
 
+    var bonusList = $('.bonusList');
+    if (bonusList.length) {
+        $('.loadMore').click(function () {
+            console.log(bonusList.find('.bonusItem.hidden'));
+            bonusList.find('.bonusItem.hidden').removeClass('hidden').animate({
+                opacity: 1
+            }, 1000 );
+        });
+    }
+
+    var bonusList = $('.bonusList');
+    if (bonusList.length) {
+        $('.loadMore').click(function () {
+            bonusList.find('.bonusItem.hidden').removeClass('hidden').animate({
+                opacity: 1
+            }, 1000 );
+        });
+    }
+
 });
