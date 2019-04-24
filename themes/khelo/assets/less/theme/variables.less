@@ -47,6 +47,24 @@
   margin: 0 auto;
 }
 
+.pageWrapper {
+  &:extend(.default-container-width);
+  margin: 0 auto;
+  display: flex;
+  background-color: @body-bg-color-dark-grey;
+  padding: 25px;
+  margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
 .green-gradient {
   background-image: -moz-linear-gradient( 90deg, rgb(58,96,38) 0%, rgb(80,138,55) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgb(58,96,38) 0%, rgb(80,138,55) 100%);
